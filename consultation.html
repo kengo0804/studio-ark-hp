@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料相談 — Ark Collective</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:#0a0a0a;color:#ededed;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden;min-height:100vh;}
+a{color:inherit;text-decoration:none}
+button{border:none;background:none;cursor:pointer;font:inherit;color:inherit}
+
+:root{
+  --orange:#f57c2c;
+  --dark:#0a0a0a;
+  --dark2:#111111;
+  --dark3:#161616;
+  --border:rgba(255,255,255,0.08);
+  --muted:rgba(255,255,255,0.5);
+  --font-sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+/* ─── NAV ─── */
+#site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 40px;height:64px;
+  background:rgba(10,10,10,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;flex-direction:column;gap:2px;}
+.nav-logo-name{font-size:13px;letter-spacing:0.25em;text-transform:uppercase;font-weight:500;line-height:1;}
+.nav-logo-sub{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:400;line-height:1;}
+.nav-back{
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);display:flex;align-items:center;gap:8px;
+  transition:color 0.2s;
+}
+.nav-back:hover{color:#ededed}
+
+/* ─── MAIN ─── */
+main{
+  min-height:100vh;
+  padding:120px 40px 80px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* ─── HEADER ─── */
+.page-header{
+  text-align:center;
+  max-width:600px;
+  margin-bottom:64px;
+}
+.page-label{
+  font-size:10px;letter-spacing:0.35em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;display:block;
+}
+.page-title{
+  font-size:clamp(32px,5vw,56px);font-weight:500;
+  letter-spacing:-0.04em;line-height:1.05;margin-bottom:20px;
+}
+.page-title em{font-style:italic;color:var(--orange)}
+.page-desc{
+  font-size:13px;color:rgba(255,255,255,0.6);line-height:1.8;
+}
+
+/* ─── FORM CARD ─── */
+.form-card{
+  width:100%;max-width:600px;
+  background:#131313;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:4px;
+  padding:48px 52px;
+}
+
+/* ─── FORM ELEMENTS ─── */
+.form-group{margin-bottom:24px}
+.form-label{display:block;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.form-input,.form-textarea{
+  width:100%;background:var(--dark);
+  border:1px solid rgba(255,255,255,0.08);
+  color:#ededed;font-family:var(--font-sans);font-size:15px;
+  padding:16px 18px;border-radius:1px;outline:none;transition:border-color 0.2s;
+}
+.form-input:focus,.form-textarea:focus{border-color:var(--orange)}
+.form-textarea{resize:vertical;min-height:120px;line-height:1.6}
+.form-select{
+  width:100%;background:var(--dark);
+  border:1px solid rgba(255,255,255,0.08);
+  color:#ededed;font-family:var(--font-sans);font-size:14px;
+  padding:14px 40px 14px 16px;
+  border-radius:1px;outline:none;transition:border-color 0.2s;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23f57c2c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;
+}
+.form-select:focus{border-color:var(--orange)}
+.form-select option{background:#111;color:#ededed;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{
+  width:100%;padding:18px;
+  background:var(--orange);color:#0a0a0a;
+  font-size:11px;letter-spacing:0.25em;text-transform:uppercase;font-weight:500;
+  border-radius:1px;transition:background 0.2s;cursor:pointer;border:none;
+  margin-top:8px;
+}
+.form-submit:hover{background:#e56e1a}
+.form-submit:disabled{opacity:0.6;cursor:not-allowed}
+
+/* ─── FEEDBACK ─── */
+.fs-success{
+  display:none;padding:40px;text-align:center;
+  border:1px solid rgba(245,124,44,0.3);border-radius:4px;
+}
+.fs-success-icon{font-size:32px;margin-bottom:16px}
+.fs-success-msg{font-size:14px;letter-spacing:0.06em;line-height:1.7;color:rgba(255,255,255,0.8)}
+.fs-error{
+  display:none;padding:12px 16px;margin-bottom:16px;
+  background:rgba(229,57,53,0.12);border:1px solid rgba(229,57,53,0.35);
+  border-radius:4px;font-size:12px;color:#ef9a9a;
+}
+.field-error{font-size:11px;color:#ef9a9a;margin-top:4px;display:block;}
+
+/* ─── FOOTER ─── */
+footer{
+  padding:32px 40px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--dark);font-size:10px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:680px){
+  #site-nav{padding:0 20px}
+  main{padding:100px 20px 60px}
+  .form-card{padding:32px 24px}
+  .form-row{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="site-nav">
+  <a href="StudioArk.html" class="nav-logo">
+    <span class="nav-logo-name">Ark Collective</span>
+    <span class="nav-logo-sub">Music Production</span>
+  </a>
+  <a href="StudioArk.html#contact" class="nav-back">
+    ← トップへ戻る
+  </a>
+</nav>
+
+<main>
+  <div class="page-header">
+    <span class="page-label">Consultation</span>
+    <h1 class="page-title"><em>相談</em><br>フォーム</h1>
+    <p class="page-desc">
+      楽曲制作・ミックス・アレンジなど、どんな小さなご相談でも構いません。<br>
+      まずはお気軽にお聞かせください。48時間以内にご返信します。
+    </p>
+  </div>
+
+  <!-- 非表示 iframe: Formspree のレスポンスをここに受け、ページ遷移を防ぐ -->
+  <iframe name="fs-iframe" style="display:none" aria-hidden="true"></iframe>
+
+  <div class="form-card">
+    <!-- 送信完了メッセージ（初期非表示） -->
+    <div id="fs-success" style="display:none;padding:48px 0;text-align:center;">
+      <div style="width:64px;height:64px;border-radius:50%;border:1px solid rgba(245,124,44,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;font-size:26px;color:#f57c2c;">✓</div>
+      <p style="font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:#f57c2c;margin-bottom:16px;">Message Sent</p>
+      <p style="font-size:20px;font-weight:500;letter-spacing:-0.03em;margin-bottom:16px;">ありがとうございます。</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:36px;">お問い合わせを受け付けました。<br>48時間以内にご返信いたします。</p>
+      <a href="StudioArk.html" style="display:inline-flex;align-items:center;gap:8px;padding:13px 32px;background:#f57c2c;color:#0a0a0a;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;border-radius:1px;">トップへ戻る →</a>
+    </div>
+
+    <form id="contact-form" action="https://formspree.io/f/xkoygyra" method="POST" target="fs-iframe">
+      <input type="hidden" name="_subject" value="【Ark Collective】新しいお問い合わせ">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">お名前 *</label>
+          <input class="form-input" name="name" type="text" placeholder="山田 太郎" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">メールアドレス *</label>
+          <input class="form-input" name="email" type="email" placeholder="hello@example.com" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">プロジェクトの種類</label>
+          <select class="form-select" name="type" id="type-select">
+            <option value="">種類を選択</option>
+            <option value="music-prod">楽曲制作</option>
+            <option value="mix">ミックス / マスタリング</option>
+            <option value="arrange">アレンジ</option>
+            <option value="collab">コラボレーション</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">予算感</label>
+          <select class="form-select" name="budget">
+            <option value="">予算を選択</option>
+            <option value="under10k">〜10,000円</option>
+            <option value="10kto100k">1〜10万円</option>
+            <option value="100kto200k">10〜20万円</option>
+            <option value="200kto300k">20〜30万円</option>
+            <option value="300kto500k">30〜50万円</option>
+            <option value="over500k">50万円〜</option>
+            <option value="discuss">要相談</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Instagram</label>
+          <input class="form-input" name="instagram" type="text" placeholder="@your_handle">
+        </div>
+        <div class="form-group">
+          <label class="form-label">YouTube</label>
+          <input class="form-input" name="youtube" type="url" placeholder="https://youtube.com/@channel">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">参考楽曲</label>
+        <input class="form-input" name="reference_track" type="text" placeholder="アーティスト名・曲名・URL など">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">メッセージ *</label>
+        <textarea class="form-textarea" name="message" placeholder="プロジェクトの内容・納期・ご要望などをお知らせください。" required></textarea>
+      </div>
+
+      <button class="form-submit" type="submit" id="submit-btn">送信する →</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div>Ark Collective © 2026 — Fukuoka, Japan</div>
+  <a href="StudioArk.html" style="color:var(--muted);transition:color 0.2s;" onmouseover="this.style.color='#ededed'" onmouseout="this.style.color=''">← トップへ戻る</a>
+</footer>
+
+<script>
+(function() {
+  const form      = document.getElementById('contact-form');
+  const iframe    = document.querySelector('iframe[name="fs-iframe"]');
+  const successEl = document.getElementById('fs-success');
+  const submitBtn = document.getElementById('submit-btn');
+  let submitted   = false;
+
+  /* 送信開始：ボタンをローディング状態に */
+  form.addEventListener('submit', function() {
+    submitted = true;
+    submitBtn.disabled    = true;
+    submitBtn.textContent = '送信中...';
+  });
+
+  /* iframe にレスポンスが届いたら成功表示 */
+  iframe.addEventListener('load', function() {
+    if (!submitted) return;
+    form.style.display      = 'none';
+    successEl.style.display = 'block';
+  });
+})();
+</script>
+</body>
+</html>

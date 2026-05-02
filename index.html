@@ -1,0 +1,1950 @@
+<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Studio Ark Hp",
+  "schemaVersion": 1
+}
+</script>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- v2 --><title>Ark Collective — Music Production &amp; Artist Development</title>
+<style>
+/* ─── RESET & BASE ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:#0a0a0a;color:#ededed;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{border:none;background:none;cursor:pointer;font:inherit;color:inherit}
+img{display:block;max-width:100%}
+
+/* ─── CSS VARIABLES ─── */
+:root{
+  --orange:#f57c2c;
+  --dark:#0a0a0a;
+  --dark2:#111111;
+  --dark3:#161616;
+  --border:rgba(255,255,255,0.08);
+  --muted:rgba(255,255,255,0.5);
+  --font-sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+/* ─── NAV ─── */
+#site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 40px;height:64px;
+  background:rgba(10,10,10,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:background 0.3s;
+}
+.nav-logo{display:flex;flex-direction:column;gap:2px;}
+.nav-logo-name{font-size:13px;letter-spacing:0.25em;text-transform:uppercase;font-weight:500;line-height:1;}
+.nav-logo-sub{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:400;line-height:1;}
+.nav-links{display:flex;gap:32px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted)}
+.nav-links a{transition:color 0.2s}
+.nav-links a:hover{color:#ededed}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-cta{
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  padding:9px 20px;
+  border:1px solid var(--orange);
+  color:var(--orange);
+  border-radius:2px;
+  transition:background 0.2s,color 0.2s;
+}
+.nav-cta:hover{background:var(--orange);color:#0a0a0a}
+
+/* ── LANG TOGGLE ── */
+.lang-toggle{
+  display:flex;align-items:center;gap:0;
+  border:1px solid var(--border);border-radius:2px;overflow:hidden;
+  font-size:10px;letter-spacing:0.2em;
+}
+.lang-btn{
+  padding:7px 12px;color:var(--muted);
+  transition:background 0.2s,color 0.2s;
+  cursor:pointer;border:none;background:none;font:inherit;
+  font-size:10px;letter-spacing:0.2em;
+}
+.lang-btn.active{background:var(--orange);color:#0a0a0a;font-weight:600}
+.lang-btn:not(.active):hover{color:#ededed}
+/* lang switch: no fade to avoid opacity stuck bugs */
+
+/* ─── HERO ─── */
+#hero{
+  position:relative;z-index:1;width:100%;
+  height:100vh;min-height:600px;
+  background:#0a0a0a;color:#ededed;
+  overflow:hidden;user-select:none;cursor:crosshair;
+}
+.ys-canvas{position:absolute;inset:0;width:100%;height:100%}
+.ys-overlay{
+  position:absolute;inset:0;
+  display:grid;grid-template-rows:auto 1fr auto;
+  padding:100px 40px 40px 7vw;
+  z-index:2;pointer-events:none;
+}
+.ys-topbar{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+.ys-topbar-right{display:flex;gap:20px}
+.ys-center{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-right:42%}
+.ys-studio-name{
+  font-size:clamp(28px,4vw,56px);
+  font-weight:300;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#ededed;
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.ys-studio-sub{
+  font-size:clamp(11px,1.2vw,14px);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:400;
+  margin-top:-16px;
+  margin-bottom:28px;
+}
+.ys-studio-name::before{
+  content:'';
+  display:block;
+  width:36px;
+  height:1px;
+  background:#f57c2c;
+  flex-shrink:0;
+}
+.ys-kinetic{font-size:clamp(44px,8.5vw,100px);font-weight:500;letter-spacing:-0.05em;line-height:0.92;display:flex;flex-direction:column;color:#ededed}
+.ys-kinetic span{display:block;position:relative;overflow:hidden;color:#ededed}
+.ys-kinetic .l2{color:transparent;-webkit-text-stroke:1px #ededed;font-style:italic}
+.ys-tagline{margin-top:20px;font-size:12px;color:rgba(255,255,255,0.82);letter-spacing:0.04em;line-height:1.7}
+.ys-tagline strong{color:#f57c2c;font-weight:500}
+.ys-cta-row{margin-top:32px;display:flex;gap:16px;pointer-events:auto}
+.ys-btn{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:12px 28px;border-radius:2px;transition:all 0.2s;display:inline-block;}
+.ys-btn-primary{background:var(--orange);color:#0a0a0a}
+.ys-btn-primary:hover{background:#e56e1a}
+.ys-btn-ghost{border:1px solid rgba(255,255,255,0.3);color:#ededed}
+.ys-btn-ghost:hover{border-color:#ededed}
+.ys-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.ys-piano{display:flex;gap:1px;height:36px;flex:1;max-width:240px;pointer-events:auto}
+.ys-key{flex:1;background:rgba(255,255,255,0.08);border-radius:0 0 1px 1px;transition:background 0.15s,height 0.15s;height:100%;border:0;cursor:pointer;padding:0}
+.ys-key:hover,.ys-key.lit{background:#f57c2c}
+.ys-meta{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-align:right;line-height:1.8}
+.ys-meta b{color:#ededed;font-weight:500;letter-spacing:0.05em;font-size:11px;text-transform:none}
+.ys-loader{position:absolute;inset:0;background:#0a0a0a;z-index:10;display:flex;flex-direction:column;justify-content:space-between;padding:24px;transition:opacity 0.7s cubic-bezier(0.65,0,0.35,1);}
+.ys-loader.done{opacity:0;pointer-events:none}
+.ys-loader-top{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:flex;justify-content:space-between}
+.ys-loader-num{font-size:clamp(72px,15vw,168px);font-weight:500;letter-spacing:-0.05em;line-height:1;font-feature-settings:"tnum";color:#ededed}
+.ys-loader-bar{width:100%;height:1px;background:rgba(255,255,255,0.15);position:relative;margin-top:14px;overflow:hidden}
+.ys-loader-bar-fill{position:absolute;inset:0 100% 0 0;background:#f57c2c;transition:right 0.05s linear}
+.ys-marquee{position:absolute;left:0;right:0;bottom:38%;font-size:clamp(56px,11vw,128px);font-weight:500;letter-spacing:-0.04em;color:rgba(245,124,44,0.95);white-space:nowrap;font-style:italic;animation:ys-scroll 8s linear infinite}
+@keyframes ys-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+
+/* ─── MOUSE-FOLLOW GLOW ─── */
+/* ── Glow Orb: position fixed, z-index:0 (透明セクションを透過してシームレス表示) ── */
+.glow-orb{
+  position:fixed;top:0;left:0;
+  width:640px;height:640px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:0;
+  opacity:0;
+  transition:opacity 0.5s ease;
+  background:radial-gradient(circle at center,
+    rgba(245,124,44,0.16) 0%,
+    rgba(235,110,36,0.09) 42%,
+    transparent 70%
+  );
+  filter:blur(40px);
+  will-change:transform,border-radius;
+}
+/* ─── SECTION SHARED ─── */
+section{padding:120px 40px;position:relative;z-index:1}
+.section-label{font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
+.section-title{font-size:clamp(36px,5vw,64px);font-weight:500;letter-spacing:-0.04em;line-height:1.05;margin-bottom:32px;}
+.section-title em{font-style:italic;color:transparent;-webkit-text-stroke:1px #ededed}
+
+/* ─── TICKER ─── */
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--dark2);position:relative;z-index:1;}
+.ticker-inner{display:flex;gap:60px;white-space:nowrap;animation:ticker 24s linear infinite;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);}
+.ticker-inner span{flex-shrink:0}
+.ticker-inner b{color:var(--orange);font-weight:400}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SERVICES ─── */
+#services{background:transparent}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;border:1px solid rgba(245,124,44,0.10);margin-top:60px;}
+.service-card{padding:40px 32px;background:var(--dark2);transition:background 0.25s;position:relative;overflow:hidden;isolation:isolate;}
+.service-card:hover{background:var(--dark3)}
+.service-card::before{
+  content:'';
+  position:absolute;
+  inset:-120%;
+  width:340%;height:340%;
+  background:conic-gradient(from 0deg at 50% 50%,transparent 0%,transparent 40%,var(--orange) 50%,rgba(245,124,44,0.3) 60%,transparent 70%,transparent 100%);
+  opacity:0;
+  z-index:0;
+  transition:opacity 0.4s;
+  pointer-events:none;
+}
+.service-card:hover::before{
+  opacity:1;
+  animation:border-beam 2s linear infinite;
+}
+.service-card::after{
+  content:'';
+  position:absolute;
+  inset:1px;
+  background:var(--dark2);
+  z-index:1;
+  transition:background 0.25s;
+  pointer-events:none;
+}
+.service-card:hover::after{background:var(--dark3)}
+.service-card > *{position:relative;z-index:2}
+@keyframes border-beam{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+/* ── Input beam wrap ── */
+.input-beam-wrap{
+  position:relative;overflow:hidden;
+  background:var(--dark);border:1px solid rgba(255,255,255,0.08);
+  border-radius:2px;width:100%;
+}
+.input-beam-wrap.no-right{border-right:none;border-radius:2px 0 0 2px;}
+.input-beam-wrap input{
+  width:100%;background:transparent;border:none;outline:none;
+  color:#ededed;font-size:13px;padding:13px 16px;
+  font-family:var(--font-sans);box-sizing:border-box;
+}
+.input-beam-wrap:focus-within{
+  border-color:var(--orange);
+  animation:card-glow-pulse 2s ease-in-out infinite;
+}
+.service-num{font-size:11px;letter-spacing:0.2em;color:var(--orange);margin-bottom:24px;}
+.service-name{font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-bottom:14px;transition:color 0.2s}
+.service-card:hover .service-name{color:var(--orange)}
+.service-desc{font-size:13px;color:var(--muted);line-height:1.75;}
+.service-tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:6px;}
+.tag{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--border);color:var(--muted);border-radius:1px;}
+
+/* ─── WORKS ─── */
+#works{background:transparent}
+.works-filter{display:none}
+/* ─── WORKS LOCK PANEL ─── */
+#works-lock-panel{
+  margin-top:48px;
+  border:1px solid rgba(245,124,44,0.14);
+  background:var(--dark2);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+#works-lock-panel.hidden{display:none}
+/* ブラーサムネイル背景 */
+.lock-bg{
+  position:absolute;inset:0;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;pointer-events:none;z-index:0;
+}
+.lock-bg-img{
+  background-size:cover;background-position:center;
+  filter:blur(14px) brightness(0.35) saturate(0.7);
+  transform:scale(1.12);
+}
+/* ダークオーバーレイ */
+.lock-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(10,9,8,0.72) 0%,rgba(10,9,8,0.90) 100%);
+  pointer-events:none;z-index:1;
+}
+/* コンテンツ層 */
+.lock-content{
+  position:relative;z-index:2;
+  padding:56px 40px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+/* RESTRICTEDバッジ */
+.lock-badge{
+  font-size:9px;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--orange);border:1px solid rgba(245,124,44,0.35);
+  padding:5px 14px;font-family:monospace;margin-bottom:4px;
+}
+.lock-icon{color:var(--orange);line-height:1;}
+.lock-title{font-size:20px;font-weight:500;letter-spacing:-0.02em}
+/* 墨消し風ライン */
+.lock-redacted{
+  display:flex;flex-direction:column;align-items:flex-start;gap:7px;
+  width:100%;max-width:260px;opacity:0.18;pointer-events:none;
+}
+.lock-redacted-line{height:7px;background:#ededed;border-radius:1px;width:100%;}
+.lock-redacted-line:nth-child(2){width:72%;}
+.lock-redacted-line:nth-child(3){width:48%;}
+.lock-sub{font-size:13px;color:var(--muted);line-height:1.7;max-width:400px}
+.lock-form{display:flex;gap:0;width:100%;max-width:420px;margin-top:4px}
+.lock-input{
+  flex:1;background:var(--dark);border:1px solid var(--border);
+  border-right:none;color:#ededed;font-size:13px;
+  padding:13px 16px;outline:none;border-radius:2px 0 0 2px;
+  font-family:var(--font-sans);transition:border-color 0.2s;
+}
+.lock-input:focus{border-color:var(--orange)}
+#lock-name-input{border-right:1px solid rgba(255,255,255,0.08);border-radius:2px;}
+#lock-name-input:focus{border-color:var(--orange)}
+.lock-submit{
+  background:var(--orange);color:#0a0a0a;
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  padding:13px 22px;border:none;cursor:pointer;
+  border-radius:0 2px 2px 0;font-family:var(--font-sans);
+  transition:background 0.2s;white-space:nowrap;
+}
+.lock-submit:hover{background:#e56e1a}
+.lock-submit:disabled{opacity:0.5;cursor:not-allowed}
+.lock-msg{font-size:12px;color:var(--muted);min-height:18px}
+.lock-msg.success{color:#4caf50}
+.lock-msg.error{color:#f44336}
+.lock-step{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:16px}
+
+.works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:rgba(245,124,44,0.07);}
+.work-card{background:var(--dark2);padding:32px;display:flex;flex-direction:column;gap:20px;transition:background 0.2s,box-shadow 0.25s,border-color 0.25s;cursor:pointer;border:1px solid rgba(255,255,255,0.04);}
+.work-card:hover{background:var(--dark3);border-color:rgba(245,124,44,0.18)}
+.work-card.selected{border-color:var(--orange);background:var(--dark3);animation:card-glow-pulse 2s ease-in-out infinite}
+@keyframes card-glow-pulse{
+  0%,100%{box-shadow:0 0 0 1px var(--orange),0 0 12px rgba(245,124,44,0.15),0 0 24px rgba(245,124,44,0.08)}
+  50%{box-shadow:0 0 0 1px var(--orange),0 0 24px rgba(245,124,44,0.5),0 0 48px rgba(245,124,44,0.2)}
+}
+.work-card-top{display:flex;justify-content:space-between;align-items:flex-start}
+.work-badge{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:5px 10px;background:rgba(245,124,44,0.12);color:var(--orange);border-radius:1px;}
+.work-year{font-size:10px;letter-spacing:0.15em;color:var(--muted)}
+.work-thumb{width:100%;aspect-ratio:16/9;background:var(--dark3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.work-thumb-waveform{width:100%;height:100%;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:2px;padding:20px;}
+.wf-bar{flex:1;max-width:4px;border-radius:1px;background:rgba(245,124,44,0.4);transition:height 0.3s;}
+.work-card:hover .wf-bar{background:var(--orange)}
+.work-title{font-size:18px;font-weight:500;letter-spacing:-0.02em;transition:color 0.2s}
+.work-card:hover .work-title{color:var(--orange)}
+.work-role{font-size:11px;color:var(--muted);letter-spacing:0.1em}
+.work-play{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:all 0.2s;align-self:flex-end;}
+.work-card:hover .work-play{border-color:var(--orange);color:var(--orange)}
+
+
+
+
+/* ─── SPOTIFY CARD ─── */
+.work-card-spotify{
+  background:var(--dark2);
+  border:1px solid rgba(255,255,255,0.04);
+  padding:32px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  transition:background 0.2s;
+}
+.work-card-spotify:hover{background:var(--dark3)}
+.work-card-spotify .work-card-top{display:flex;justify-content:space-between;align-items:center;}
+.work-card-spotify iframe{border-radius:8px;display:block;}
+
+/* ─── VIDEO MODAL ─── */
+#video-modal{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,0.88);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+}
+#video-modal.active{display:flex}
+.vm-inner{position:relative;width:90%;max-width:900px;}
+.vm-inner iframe{width:100%;aspect-ratio:16/9;border:none;display:block;}
+.vm-close{
+  position:absolute;top:-44px;right:0;
+  font-size:20px;color:rgba(255,255,255,0.6);cursor:pointer;
+  background:none;border:none;line-height:1;
+  transition:color 0.2s;
+}
+.vm-close:hover{color:#fff}
+.work-thumb-yt{
+  width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;cursor:pointer;
+  background:linear-gradient(135deg,#1a1a1a 0%,#0e0e0e 100%);
+}
+.work-thumb-yt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
+.work-thumb-yt:hover img{transform:scale(1.04)}
+.work-thumb-yt-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,0.35);
+  display:flex;align-items:center;justify-content:center;transition:background 0.2s;
+}
+.work-thumb-yt:hover .work-thumb-yt-overlay{background:rgba(0,0,0,0.15)}
+.yt-play-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(245,124,44,0.92);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:#fff;
+  box-shadow:0 4px 20px rgba(245,124,44,0.4);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.work-thumb-yt:hover .yt-play-icon{transform:scale(1.1);box-shadow:0 6px 28px rgba(245,124,44,0.6)}
+
+/* ─── AUDIO PLAYER ─── */
+#audio-player{z-index:200;
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;
+  background:rgba(10,10,10,0.96);backdrop-filter:blur(16px);
+  border-top:1px solid var(--border);
+  padding:14px 40px;
+  display:none;align-items:center;gap:20px;
+}
+#audio-player.active{display:flex}
+.ap-title{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#ededed;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ap-btn{width:36px;height:36px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;color:#ededed;flex-shrink:0;transition:border-color 0.2s,color 0.2s;}
+.ap-btn:hover,.ap-btn.playing{border-color:var(--orange);color:var(--orange)}
+.ap-progress{flex:2;height:2px;background:rgba(255,255,255,0.15);border-radius:1px;position:relative;cursor:pointer;}
+.ap-progress-fill{height:100%;background:var(--orange);border-radius:1px;width:0%;transition:width 0.1s linear;pointer-events:none;}
+.ap-time{font-size:10px;letter-spacing:0.1em;color:var(--muted);white-space:nowrap;min-width:70px;text-align:center}
+.ap-vol-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ap-vol-icon{font-size:13px;color:var(--muted);cursor:pointer;user-select:none}
+.ap-vol-icon:hover{color:#ededed}
+input[type=range].ap-vol{
+  -webkit-appearance:none;appearance:none;
+  width:80px;height:2px;background:rgba(255,255,255,0.15);border-radius:1px;outline:none;cursor:pointer;
+}
+input[type=range].ap-vol::-webkit-slider-thumb{
+  -webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--orange);cursor:pointer;
+}
+.ap-close{font-size:16px;color:var(--muted);cursor:pointer;margin-left:8px;}
+.ap-close:hover{color:#ededed}
+.work-play.has-audio{cursor:pointer}
+.work-play.playing-now{background:var(--orange);color:#0a0a0a;border-color:var(--orange)}
+
+/* ─── ABOUT ─── */
+#about{background:rgba(17,17,17,0.93);display:none}
+.about-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;margin-top:60px;max-width:720px;}
+
+.about-portrait-inner{width:100%;height:100%;background:linear-gradient(135deg,#111 0%,#161616 50%,#0e0e0e 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+
+.portrait-initials{font-size:clamp(64px,10vw,120px);font-weight:500;letter-spacing:-0.05em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.2);font-style:italic;}
+.portrait-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);}
+.about-portrait-badge{position:absolute;bottom:24px;right:24px;background:var(--orange);padding:10px 16px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#0a0a0a;font-weight:500;z-index:3;}
+.about-bio{font-size:15px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:40px;}
+.about-bio strong{color:#ededed}
+.about-stats{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-bottom:40px;}
+.stat{
+  background:var(--dark);
+  padding:20px 32px;
+  display:flex;
+  align-items:center;
+  gap:40px;
+}
+.stat-num{font-size:36px;font-weight:500;letter-spacing:-0.04em;color:var(--orange);line-height:1;flex-shrink:0;min-width:72px;}
+.stat-label{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--border);padding-left:28px;}
+.about-skills{display:flex;flex-wrap:wrap;gap:6px}
+.skill-badge{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--border);color:rgba(255,255,255,0.6);border-radius:1px;transition:all 0.2s;}
+.skill-badge:hover{border-color:var(--orange);color:var(--orange)}
+
+/* ─── CONTACT ─── */
+#contact{background:transparent;position:relative;overflow:hidden;padding:0;}
+#mix-console-wrap{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+#mix-console-wrap canvas{width:100%!important;height:100%!important;}
+.contact-inner{
+  position:relative;z-index:1;
+  padding:120px 40px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.contact-wrap{
+  margin-top:60px;
+  max-width:560px;
+  width:100%;
+}
+.contact-links{text-align:left;}
+.consult-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 36px;
+  border:1px solid var(--orange);
+  color:var(--orange);
+  font-size:11px;letter-spacing:0.25em;text-transform:uppercase;
+  border-radius:1px;
+  transition:background 0.2s,color 0.2s;
+  margin-bottom:48px;
+  cursor:pointer;
+}
+.consult-btn:hover{background:var(--orange);color:#0a0a0a;}
+.contact-headline{font-size:clamp(30px,3.2vw,48px);font-weight:500;letter-spacing:-0.04em;line-height:1.1;margin-bottom:20px;}
+.contact-headline em{font-style:italic;color:var(--orange)}
+.contact-sub{font-size:13px;color:rgba(255,255,255,0.8)!important;line-height:1.8;margin-bottom:36px}
+.contact-links{display:flex;flex-direction:column;gap:0}
+.contact-link-row{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:13px;color:#ededed!important;transition:color 0.2s;}
+.contact-headline{color:#ededed!important}
+.contact-link-icon{color:#ededed!important}
+.contact-link-row:hover{color:#ededed}
+.contact-link-icon{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;border-radius:1px;}
+.contact-link-text{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.contact-link-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-left:auto;flex-shrink:0;padding-left:8px;}
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.form-input,.form-textarea{width:100%;background:var(--dark2);border:1px solid rgba(255,255,255,0.07);color:#ededed;font-family:var(--font-sans);font-size:15px;padding:16px 18px;border-radius:1px;outline:none;transition:border-color 0.2s;}
+.form-input:focus,.form-textarea:focus{border-color:var(--orange)}
+.form-textarea{resize:vertical;min-height:110px;line-height:1.6}
+.form-select{
+  width:100%;background:var(--dark2);
+  border:1px solid rgba(255,255,255,0.07);
+  color:#ededed;font-family:var(--font-sans);font-size:14px;
+  padding:14px 40px 14px 16px;
+  border-radius:1px;outline:none;
+  transition:border-color 0.2s;
+  appearance:none;-webkit-appearance:none;
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23f57c2c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+}
+.form-select:focus{border-color:var(--orange)}
+.form-select option{background:#111;color:#ededed;}
+.form-submit{width:100%;padding:16px;background:var(--orange);color:#0a0a0a;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;font-weight:500;border-radius:1px;transition:background 0.2s;cursor:pointer;border:none;}
+.form-submit:hover{background:#e56e1a}
+
+/* ─── FOOTER ─── */
+footer{padding:40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--dark);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);}
+.footer-links{display:flex;gap:24px}
+.footer-links a:hover{color:#ededed}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  #site-nav{padding:0 20px}
+  .nav-links{display:none}
+  section{padding:80px 20px}
+  .about-grid{max-width:100%}
+  .ys-center{padding-right:0}
+  footer{flex-direction:column;gap:16px;text-align:center}
+
+  /* Contact: single column, form first */
+  .contact-wrap{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .contact-inner{ padding:80px 20px; }
+  .contact-wrap{ max-width:100%; }
+  #mix-console-wrap{ position:absolute;inset:0; }
+
+  /* SNS リンクをモバイルで読みやすく */
+  .contact-link-row{ padding:12px 0; }
+  .contact-link-label{ display:none; }
+
+  /* Reduce headline size & spacing */
+  .contact-headline{ font-size:clamp(24px,6vw,34px); margin-bottom:12px; }
+  .contact-sub{ margin-bottom:20px; font-size:13px; }
+}
+@media(max-width:600px){
+  .ys-overlay{padding:80px 20px 24px}
+  .works-grid{grid-template-columns:1fr}
+  .stat{padding:16px 20px;gap:24px;}
+  .stat-num{font-size:28px;min-width:56px;}
+  .stat-label{padding-left:20px;}
+
+  /* Tighten form fields on small screens */
+  .form-input,.form-select,.form-textarea{font-size:16px;} /* prevent iOS zoom */
+
+  /* ── モバイル可読性強化 ── */
+  .service-name{color:#ededed;}
+  .tag{color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.18);}
+  .ys-kinetic .l2{color:transparent;-webkit-text-stroke:1px rgba(237,237,237,0.8);}
+  .ys-tagline{color:rgba(255,255,255,0.88);}
+  .contact-sub{color:rgba(255,255,255,0.82)!important;}
+  .contact-headline{color:#ffffff!important;}
+  .contact-link-row{color:#ededed!important;}
+  .section-title{color:#ffffff;}
+  .lock-sub{color:rgba(255,255,255,0.8);}
+  .work-role{color:rgba(255,255,255,0.75);}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="site-nav">
+  <div class="nav-logo">
+    <span class="nav-logo-name">Ark Collective</span>
+  </div>
+  <div class="nav-links">
+    <a href="#services" data-i18n="nav.services">サービス</a>
+    <a href="#works" data-i18n="nav.works">実績</a>
+    <a href="#about" data-i18n="nav.about" style="display:none">プロフィール</a>
+    <a href="#contact" data-i18n="nav.contact">お問い合わせ</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')">JP</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#contact" class="nav-cta" data-i18n="nav.cta">セッションを予約</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <canvas class="ys-canvas" id="ys-canvas"></canvas>
+  <div class="ys-overlay">
+    <div class="ys-topbar">
+      <span>Ark Collective © 2026</span>
+      <div class="ys-topbar-right">
+        <span>FUK / JPN</span>
+        <span data-i18n="hero.status">委託受付中</span>
+      </div>
+    </div>
+    <div class="ys-center">
+      <div class="ys-studio-name">Ark Collective</div>
+      <div class="ys-studio-sub">Sound-Driven Growth for Artists, Brands &amp; Products</div>
+      <div class="ys-kinetic">
+        <span id="hero-line1">音が</span>
+        <span class="l2" id="hero-line2">心を動かす。</span>
+      </div>
+      <div class="ys-tagline" data-i18n-html="hero.tagline">
+        コンポーザー・アレンジャー・ミックスエンジニア<br>
+        福岡を拠点に — <strong>世界へ届ける音楽を</strong>
+      </div>
+      <div class="ys-cta-row">
+        <a href="#works" class="ys-btn ys-btn-primary" data-i18n="hero.cta1">制作実績を見る</a>
+      </div>
+    </div>
+    <div class="ys-bottom">
+      <div class="ys-piano" id="ys-piano"></div>
+    </div>
+  </div>
+  <div class="ys-loader" id="ys-loader">
+    <div class="ys-loader-top">
+      <span data-i18n="hero.loading">スタジオを読み込み中</span>
+      <span>Ark Collective / FUK</span>
+    </div>
+    <div class="ys-marquee">STUDIO ARK&nbsp;·&nbsp;STUDIO ARK&nbsp;·&nbsp;STUDIO ARK&nbsp;·&nbsp;STUDIO ARK&nbsp;·&nbsp;</div>
+    <div>
+      <div class="ys-loader-num"><span id="ys-loader-num">0</span><span style="font-size:0.5em;color:rgba(255,255,255,0.5)">%</span></div>
+      <div class="ys-loader-bar"><div class="ys-loader-bar-fill" id="ys-loader-fill"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker-wrap">
+  <div class="ticker-inner" id="ticker-inner">
+    <!-- JS で挿入 -->
+  </div>
+</div>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <h2 class="section-title reveal" data-i18n-html="services.title">できること</h2>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name" data-i18n="s1.name">作曲</div>
+      <div class="service-desc" data-i18n="s1.desc">あなたのビジョンに合わせたオリジナル楽曲を制作します。ソロピアノの繊細な表現からフルオーケストラのスコアまで、あなたの物語が必要とするものに耳を傾けることから始めます。</div>
+      <div class="service-tags">
+        <span class="tag">オリジナル制作</span><span class="tag">リミックス</span><span class="tag">BGM</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name" data-i18n="s2.name">編曲</div>
+      <div class="service-desc" data-i18n="s2.desc">豊かなオーケストレーション、独創的なハーモニー、ジャンルを超えたテクスチャーで、あなたのアイデアをさらに高いレベルへと昇華させます。</div>
+      <div class="service-tags">
+        <span class="tag">ハイブリッド</span><span class="tag">ライブアレンジ</span><span class="tag">AI</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name" data-i18n="s3.name">ミックスエンジニアリング</div>
+      <div class="service-desc" data-i18n="s3.desc">クラブシステムからイヤフォンまであらゆる再生環境に対応した、クリーンでダイナミックかつ立体的なミックスを提供します。精度と温かみを両立した仕上がりを目指します。</div>
+      <div class="service-tags">
+        <span class="tag">ステムミックス対応</span><span class="tag">修正2回まで無料</span><span class="tag">ラウドネス最適化</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name" data-i18n="s4.name">ソニックブランディング</div>
+      <div class="service-desc" data-i18n="s4.desc">商品・空間・ブランドに音のアイデンティティを。一度聴いたら忘れられないソニックロゴから、世界観を体現するサウンドをデザインします。</div>
+      <div class="service-tags">
+        <span class="tag">UI/UX</span><span class="tag">ブランディング</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-name" data-i18n="s5.name">レコーディング</div>
+      <div class="service-desc" data-i18n="s5.desc">ボーカル・ナレーション・楽器など、あらゆる録音に対応します。クリーンで扱いやすい素材を納品し、その後のミックス工程もスムーズに進められます。</div>
+      <div class="service-tags">
+        <span class="tag">ボーカル</span><span class="tag">ナレーション</span><span class="tag">楽器</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-name" data-i18n="s6.name">生楽器 Rec</div>
+      <div class="service-desc" data-i18n="s6.desc">ギター・ベース・ピアノをはじめとした生楽器の録音を承ります。打ち込みでは出せないリアルなニュアンスと温かみを、あなたのトラックに加えます。</div>
+      <div class="service-tags">
+        <span class="tag">ギター</span><span class="tag">ベース</span><span class="tag">ピアノ</span><span class="tag">ドラム</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WORKS ─── -->
+<section id="works">
+  <h2 class="section-title reveal" data-i18n-html="works.title">Works</h2>
+  <div class="works-filter reveal" id="works-filter">
+    <!-- JS で挿入 -->
+  </div>
+  <div class="works-grid reveal" id="works-grid"></div>
+  <div id="works-lock-panel">
+    <!-- ブラー背景 -->
+    <div class="lock-bg" aria-hidden="true">
+      <div class="lock-bg-img" style="background-image:url('https://img.youtube.com/vi/BEIGmDftOs4/mqdefault.jpg')"></div>
+      <div class="lock-bg-img" style="background-image:url('https://img.youtube.com/vi/KSvuOBAWyjs/mqdefault.jpg')"></div>
+      <div class="lock-bg-img" style="background-image:url('https://img.youtube.com/vi/szTRoNp3cAg/mqdefault.jpg')"></div>
+      <div class="lock-bg-img" style="background-image:url('https://img.youtube.com/vi/OW7ArDFfiTE/mqdefault.jpg')"></div>
+      <div class="lock-bg-img" style="background-image:url('https://img.youtube.com/vi/3FBgfW77uLY/mqdefault.jpg')"></div>
+      <div class="lock-bg-img" style="background-image:url('https://img.youtube.com/vi/LdyrjkocLbc/mqdefault.jpg')"></div>
+    </div>
+    <div class="lock-overlay" aria-hidden="true"></div>
+    <!-- コンテンツ -->
+    <div class="lock-content">
+      <div class="lock-badge">RESTRICTED ACCESS</div>
+      <div class="lock-icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="1"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <h3 class="lock-title" data-i18n="lock.title">メジャーアーティストへの実績を見る</h3>
+      <div class="lock-redacted" aria-hidden="true">
+        <div class="lock-redacted-line"></div>
+        <div class="lock-redacted-line"></div>
+        <div class="lock-redacted-line"></div>
+      </div>
+      <p class="lock-sub" data-i18n="lock.sub">メールアドレスをご登録いただくと、アクセス用パスワードをお送りします。</p>
+      <!-- Step 1: Name + Email -->
+      <div class="lock-step" id="lock-step-email">
+        <div class="lock-form" style="flex-direction:column;gap:10px;">
+          <div class="input-beam-wrap">
+            <input type="text" id="lock-name-input" data-i18n-ph="form.name" placeholder="お名前" oninput="updateLockBtn()">
+          </div>
+          <div style="display:flex;width:100%;gap:0;">
+            <div class="input-beam-wrap no-right" style="flex:1;">
+              <input type="email" id="lock-email-input" data-i18n-ph="lock.email_ph" placeholder="your@email.com" oninput="updateLockBtn()">
+            </div>
+            <button class="lock-submit" id="lock-email-btn" onclick="submitLockEmail()" data-i18n="lock.send" disabled style="opacity:0.4;cursor:not-allowed;">送信する</button>
+          </div>
+        </div>
+        <p class="lock-msg" id="lock-email-msg"></p>
+      </div>
+      <!-- Step 2: Password -->
+      <div class="lock-step" id="lock-step-password" style="display:none">
+        <p class="lock-sub" data-i18n="lock.sent_msg">パスワードをメールにお送りしました。ご確認のうえ入力してください。</p>
+        <div class="lock-form">
+          <input class="lock-input" type="password" id="lock-pw-input" data-i18n-ph="lock.pw_ph" placeholder="パスワードを入力">
+          <button class="lock-submit" onclick="checkLockPassword()" data-i18n="lock.unlock">解除する</button>
+        </div>
+        <p class="lock-msg" id="lock-pw-msg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <p class="section-label reveal" data-i18n="about.label">プロフィール</p>
+  <div class="about-grid">
+    
+    <div class="about-content">
+      <h2 class="section-title reveal" style="margin-bottom:24px" data-i18n-html="about.title">音の向こうにいる<br><em>人間</em></h2>
+      <p class="about-bio reveal" data-i18n-html="about.bio1">
+        私は<strong>YOKASOUND</strong>（よかサウンド）として活動する、福岡在住の作曲家・編曲家・ミックスエンジニアです。10年以上にわたり、映画・テレビ・広告・インタラクティブメディアの音楽制作に携わり、アジアを中心に世界中のディレクター・ブランド・クリエイティブチームと協働してきました。
+      </p>
+      <p class="about-bio reveal" data-i18n-html="about.bio2">
+        私のアプローチは<strong>メロディ優先の思考</strong>と、音符と音符の間の「沈黙」への深いリスペクトに根ざしています。壮大なシネマティックスコアを構築するときも、ポップスのミックスを仕上げるときも、「その空間にあるべき音楽」を目指しています。
+      </p>
+      <div class="about-stats reveal">
+        <div class="stat"><div class="stat-num">10+</div><div class="stat-label" data-i18n="stat1">活動年数</div></div>
+        <div class="stat"><div class="stat-num">200+</div><div class="stat-label" data-i18n="stat2">納品楽曲数</div></div>
+        <div class="stat"><div class="stat-num">40+</div><div class="stat-label" data-i18n="stat3">クライアント実績</div></div>
+        <div class="stat"><div class="stat-num">12</div><div class="stat-label" data-i18n="stat4">展開国数</div></div>
+      </div>
+      <div class="about-skills reveal">
+        <span class="skill-badge">Logic Pro X</span>
+        <span class="skill-badge">Pro Tools</span>
+        <span class="skill-badge">Ableton Live</span>
+        <span class="skill-badge">Sibelius</span>
+        <span class="skill-badge">Kontakt</span>
+        <span class="skill-badge">Dolby Atmos</span>
+        <span class="skill-badge">Spitfire Audio</span>
+        <span class="skill-badge">Max/MSP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div id="mix-console-wrap"></div>
+  <div class="contact-inner">
+  <h2 class="section-title reveal" data-i18n="contact.label">Contact</h2>
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <h2 class="contact-headline" style="color:#ededed" data-i18n-html="contact.headline">一緒に<br><em>素晴らしい作品</em><br>を作りましょう。</h2>
+      <p class="contact-sub" style="color:#ededed" data-i18n-html="contact.sub">
+        委託・コラボレーション・クリエイティブなご相談を随時受け付けています。<br>
+        48時間以内にご返信いたします（通常はもっと早く対応します）。
+      </p>
+      <a href="consultation.html" class="consult-btn">相談する →</a>
+      <div class="contact-links">
+        <a class="contact-link-row" href="mailto:info@arkcltv.com" style="color:#ededed;text-decoration:none;">
+          <div class="contact-link-icon" style="color:#ededed">✉</div>
+          <span class="contact-link-text">info@arkcltv.com</span>
+          <span class="contact-link-label">Email</span>
+        </a>
+        <a class="contact-link-row" href="https://x.com/ArkCollectivex" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+          <div class="contact-link-icon">𝕏</div>
+          <span class="contact-link-text">@ArkCollectivex</span>
+          <span class="contact-link-label">X / Twitter</span>
+        </a>
+        <a class="contact-link-row" href="https://www.instagram.com/studio_arkand/?hl=ja" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+          <div class="contact-link-icon" style="font-size:11px;letter-spacing:0">IG</div>
+          <span class="contact-link-text">@studio_arkand</span>
+          <span class="contact-link-label">Instagram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div><!-- .contact-inner -->
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div>Ark Collective © 2026 — Fukuoka, Japan</div>
+  <div class="footer-links">
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="terms.html">利用規約</a>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════
+   i18n DICTIONARY
+════════════════════════════════════════ */
+const DICT = {
+  ja: {
+    'nav.services':  'About',
+    'nav.works':     'Works',
+    'nav.about':     'プロフィール',
+    'nav.contact':   'Contact',
+    'nav.cta':       'セッションを予約',
+    'hero.status':   '委託受付中',
+    'hero.line1':    '音が',
+    'hero.line2':    '心を動かす。',
+    'hero.tagline':  'コンポーザー・アレンジャー・ミックスエンジニア<br>福岡を拠点に — <strong>世界へ届ける音楽を</strong>',
+    'hero.cta1':     '制作実績を見る',
+    'hero.cta2':     'お問い合わせ',
+    'hero.nowplaying':'再生中',
+    'hero.loading':  'スタジオを読み込み中',
+    'services.label':'サービス',
+    'services.title':'About',
+    's1.name': '楽曲制作',
+    's1.desc': '作曲・編曲からトラックメイキングまで、あなたのビジョンを形にします。ジャンルを問わず対応可能。',
+    's2.name': '編曲',
+    's2.desc': 'メロディのアイディアやAI生成のドラフトを、完成度の高いトラックへ仕上げます。素材を整えるだけでなく、編曲のプラスαで楽曲に個性と人間らしい深みを加えます。',
+    's3.name': 'ミキシング・マスタリング',
+    's3.desc': '各トラックのバランス、EQ、コンプレッション、空間系エフェクトを駆使し、楽曲のポテンシャルを最大限に引き出します。',
+    's4.name': 'ソニックブランディング',
+    's5.name': 'レコーディング',
+    's5.desc': 'ボーカル・ナレーション・楽器など、あらゆる録音に対応します。クリーンで扱いやすい素材を納品し、その後のミックス工程もスムーズに進められます。',
+    's6.name': '生楽器 Rec',
+    's6.desc': 'ギター・ベース・ピアノをはじめとした生楽器の録音を承ります。打ち込みでは出せないリアルなニュアンスと温かみを、あなたのトラックに加えます。',
+    's4.desc': '商品・空間・ブランドに音のアイデンティティを。一度聴いたら忘れられないソニックロゴから、世界観を体現するサウンドをデザインします。',
+    'works.label': '制作実績',
+    'works.title': 'Works',
+    'lock.title':    'メジャーアーティストへの実績を見る',
+    'lock.sub':      'メールアドレスをご登録いただくと、アクセス用パスワードをお送りします。',
+    'lock.email_ph': 'your@email.com',
+    'lock.send':     '送信する',
+    'lock.sent_msg': 'パスワードをメールにお送りしました。ご確認のうえ入力してください。',
+    'lock.pw_ph':    'パスワードを入力',
+    'lock.unlock':   '解除する',
+    'lock.sending':  '送信中...',
+    'lock.sent_ok':  'パスワードをお送りしました ✓',
+    'lock.send_err': '送信に失敗しました。もう一度お試しください。',
+    'lock.pw_err':   'パスワードが正しくありません',
+    'lock.name_req': 'お名前を入力してください',
+    'lock.email_req':'メールアドレスを正しく入力してください',
+    'filter.all':    'すべて',
+    'filter.film':   '映画',
+    'filter.game':   'ゲーム',
+    'filter.cm':     'CM',
+    'filter.mix':    'ミックス / マスター',
+    'filter.indie':  'インディーズ',
+    'filter.demo':   'Demo',
+    'filter.guitar': 'ギター',
+    'filter.kyoku':  '楽曲提供',
+    'about.label': 'プロフィール',
+    'about.title': '音の向こうにいる<br><em>人間</em>',
+    'about.photo': '写真プレースホルダー',
+    'about.bio1':  '私は<strong>Ark Collective</strong>として活動する、福岡在住の作曲家・編曲家・ミックスエンジニアです。10年以上にわたり、映画・テレビ・広告・インタラクティブメディアの音楽制作に携わり、アジアを中心に世界中のディレクター・ブランド・クリエイティブチームと協働してきました。',
+    'about.bio2':  '私のアプローチは<strong>メロディ優先の思考</strong>と、音符と音符の間の「沈黙」への深いリスペクトに根ざしています。壮大なシネマティックスコアを構築するときも、ポップスのミックスを仕上げるときも、「その空間にあるべき音楽」を目指しています。',
+    'stat1': '活動年数',
+    'stat2': '納品楽曲数',
+    'stat3': 'クライアント実績',
+    'stat4': '展開国数',
+    'contact.label':    'Contact',
+    'contact.headline': '一緒に<br><em>素晴らしい作品</em><br>を作りましょう。',
+    'contact.sub':      '委託・コラボレーション・クリエイティブなご相談を随時受け付けています。<br>48時間以内にご返信いたします（通常はもっと早く対応します）。',
+    'form.name':        'お名前',
+    'form.name_ph':     '山田 太郎',
+    'form.email':       'メールアドレス',
+    'form.type':           'プロジェクトの種類',
+    'form.budget':         '予算',
+    'form.budget_ph':      '予算を選択してください',
+    'form.budget_discuss': '要相談',
+    'form.message':        'メッセージ',
+    'form.message_ph':  'プロジェクトの内容・納期・予算などをお知らせください。参考楽曲があれば一緒にお送りください。',
+    'form.submit':      '送信する →',
+    'form.sent':        '送信しました ✓',
+    'type.placeholder': 'プロジェクトの種類を選択してください',
+    'type.s1':    '楽曲制作',
+    'type.s2':    '編曲',
+    'type.s3':    'ミキシング・マスタリング',
+    'type.s4':    'ソニックブランディング',
+    'type.s5':    'レコーディング',
+    'type.s6':    '生楽器 Rec',
+    'type.other': 'その他',
+    'ticker': ['ゲームオーディオ','ミックス＆マスタリング','サウンドデザイン','CM音楽','サウンドロゴ','作曲','編曲','作詞','レコーディング'],
+    'role.score': 'オリジナルスコア',
+    'role.compmix': '作曲 + ミックス',
+    'role.comparr': '作曲 / アレンジ',
+    'role.arr2': 'アレンジ',
+    'role.arr.prog.mix': 'アレンジ / プログラミング / ミックス',
+    'role.guitar': 'ギター',
+    'role.mix': 'ミックス & マスター',
+    'role.arr': 'オーケストラ編曲',
+    'role.ost': 'フルサウンドトラック',
+    'role.comp': '作曲',
+    'role.comp.full': '作曲 / アレンジ / ミックス / マスタリング',
+  },
+  en: {
+    'nav.services':  'About',
+    'nav.works':     'Works',
+    'nav.about':     'About',
+    'nav.contact':   'Contact',
+    'nav.cta':       'Book a Session',
+    'hero.status':   'Available for commission',
+    'hero.line1':    'Sound that',
+    'hero.line2':    'moves the heart.',
+    'hero.tagline':  'Composer · Arranger · Mix Engineer<br>Based in Fukuoka — <strong>scoring the world</strong>',
+    'hero.cta1':     'View Works',
+    'hero.cta2':     'Get in Touch',
+    'hero.nowplaying':'Now playing',
+    'hero.loading':  'Loading studio',
+    'services.label':'Services',
+    'services.title':'About',
+    's1.name': 'Production',
+    's1.desc': 'From composition and arrangement to track-making — bringing your vision to life across any genre.',
+    's2.name': 'Arrangement',
+    's2.desc': 'From a melodic idea or an AI-generated draft, I shape it into a fully realised track. Beyond tidying up the material, I add the human touch that gives your music personality and depth.',
+    's3.name': 'Mixing & Mastering',
+    's3.desc': 'Balancing every track with precision EQ, compression, and spatial effects to draw out the full potential of your music.',
+    's4.name': 'Sonic Branding',
+    's5.name': 'Recording',
+    's5.desc': 'Vocals, narration, instruments — clean, well-organised recordings ready for mixing. Every session is set up to make your post-production as smooth as possible.',
+    's6.name': 'Live Instrument Rec',
+    's6.desc': 'Guitar, bass, piano and more — recorded live to bring real nuance and warmth that no plug-in can replicate. Add an organic human feel to your tracks.',
+    's4.desc': 'Giving products, spaces, and brands their own sonic identity. From an unforgettable sonic logo to immersive soundscapes that embody your world.',
+    'works.label': 'Selected Works',
+    'works.title': 'Works',
+    'lock.title':    'View major artist credits',
+    'lock.sub':      'Register your email address and we will send you the access password.',
+    'lock.email_ph': 'your@email.com',
+    'lock.send':     'Send',
+    'lock.sent_msg': 'We sent the password to your email. Please check it and enter it below.',
+    'lock.pw_ph':    'Enter password',
+    'lock.unlock':   'Unlock',
+    'lock.sending':  'Sending...',
+    'lock.sent_ok':  'Password sent ✓',
+    'lock.send_err': 'Failed to send. Please try again.',
+    'lock.pw_err':   'Incorrect password',
+    'lock.name_req': 'Please enter your name',
+    'lock.email_req':'Please enter a valid email address',
+    'filter.all':    'All',
+    'filter.film':   'Film',
+    'filter.game':   'Game',
+    'filter.cm':     'Commercial',
+    'filter.mix':    'Mix / Master',
+    'filter.indie':  'Indie',
+    'filter.demo':   'Demo',
+    'filter.guitar': 'Guitar',
+    'filter.kyoku':  'Song Placement',
+    'about.label': 'About',
+    'about.title': 'The person<br><em>behind the sound</em>',
+    'about.photo': 'Photo placeholder',
+    'about.bio1':  'I\'m <strong>Ark Collective</strong>, a composer, arranger, and mix engineer based in Fukuoka, Japan. For over a decade I\'ve been crafting music for film, television, advertising campaigns, and interactive media — partnering with directors, brands, and creative teams across Asia and beyond.',
+    'about.bio2':  'My approach is rooted in <strong>melody-first thinking</strong> and a deep respect for the silence between notes. Whether I\'m building a sweeping cinematic score or polishing the final mix of a pop record, I aim for music that earns its place in the room.',
+    'stat1': 'Years active',
+    'stat2': 'Tracks delivered',
+    'stat3': 'Client projects',
+    'stat4': 'Countries reached',
+    'contact.label':    'Contact',
+    'contact.headline': 'Let\'s make<br><em>something great</em><br>together.',
+    'contact.sub':      'Open to commissions, collaborations, and creative conversations.<br>Response within 48 hours — usually much sooner.',
+    'form.name':        'Your name',
+    'form.name_ph':     'Yamada Taro',
+    'form.email':       'Email address',
+    'form.type':           'Project type',
+    'form.budget':         'Budget',
+    'form.budget_ph':      'Select a budget range',
+    'form.budget_discuss': 'To be discussed',
+    'form.message':        'Message',
+    'form.message_ph':  'Tell me about your project — timeline, budget, and any references are helpful.',
+    'form.submit':      'Send Message →',
+    'form.sent':        'Message sent ✓',
+    'type.placeholder': 'Select a project type',
+    'type.s1':    'Music Production',
+    'type.s2':    'Arrangement',
+    'type.s3':    'Mixing & Mastering',
+    'type.s4':    'Sonic Branding',
+    'type.s5':    'Recording',
+    'type.s6':    'Live Instrument Rec',
+    'type.other': 'Other',
+    'ticker': ['Game Audio','Mixing & Mastering','Sound Design','Commercial Music','Sound Logo','Composition','Arrangement','Songwriting','Recording'],
+    'role.score':   'Original Score',
+    'role.compmix': 'Composition + Mix',
+    'role.comparr': 'Composition / Arrangement',
+    'role.arr2': 'Arrangement',
+    'role.arr.prog.mix': 'Arrangement / Programming / Mix',
+    'role.guitar': 'Guitar',
+    'role.mix':     'Mix & Master',
+    'role.arr':     'Orchestral Arrangement',
+    'role.ost':     'Full Soundtrack',
+    'role.comp':    'Composition',
+    'role.comp.full': 'Composition / Arrangement / Mix / Mastering',
+  }
+};
+
+/* ── AUDIO DATA ── */
+const AUDIO_SOURCES = {
+  pianoHouse: './Piano House.mp3'
+};
+
+/* ── AUDIO PLAYER ENGINE ── */
+let _audio = null;
+let _currentKey = null;
+let _currentCard = null;
+let _raf = null;
+
+function fmt(s) {
+  s = Math.floor(s||0);
+  return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60;
+}
+
+function apUpdateUI() {
+  if (!_audio) return;
+  document.getElementById('ap-fill').style.width = (_audio.currentTime/_audio.duration*100||0)+'%';
+  document.getElementById('ap-time').textContent = fmt(_audio.currentTime)+' / '+fmt(_audio.duration);
+  _raf = requestAnimationFrame(apUpdateUI);
+}
+
+function playTrack(key, cardEl) {
+  const src = AUDIO_SOURCES[key];
+  if (!src) return;
+  // 同じカードなら play/pause トグル
+  if (_currentKey === key && _audio) {
+    if (_audio.paused) { _audio.play(); document.getElementById('ap-play-btn').textContent='⏸'; cardEl.classList.add('playing-now'); }
+    else { _audio.pause(); document.getElementById('ap-play-btn').textContent='▶'; cardEl.classList.remove('playing-now'); }
+    return;
+  }
+  // 別のトラック
+  if (_audio) { _audio.pause(); cancelAnimationFrame(_raf); }
+  if (_currentCard) { _currentCard.textContent='▶'; _currentCard.classList.remove('playing-now'); }
+  _audio = new Audio(src);
+  _audio.volume = parseFloat(document.getElementById('ap-vol').value);
+  _currentKey = key;
+  _currentCard = cardEl;
+  document.getElementById('ap-title').textContent = cardEl.closest('.work-card').querySelector('.work-title').textContent;
+  document.getElementById('audio-player').classList.add('active');
+  document.getElementById('ap-play-btn').textContent='⏸';
+  cardEl.textContent='⏸';
+  cardEl.classList.add('playing-now');
+  _audio.play().catch(e => console.warn('play blocked:', e));
+  apUpdateUI();
+  _audio.onended = () => {
+    document.getElementById('ap-play-btn').textContent='▶';
+    if(_currentCard){_currentCard.textContent='▶';_currentCard.classList.remove('playing-now');}
+    document.getElementById('ap-fill').style.width='0%';
+    cancelAnimationFrame(_raf);
+  };
+}
+
+
+function openVideo(videoId) {
+  window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
+}
+function closeVideo() {
+  document.getElementById('video-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeVideo(); });
+
+function apToggle() {
+  if (!_audio) return;
+  if (_audio.paused) { _audio.play(); document.getElementById('ap-play-btn').textContent='⏸'; if(_currentCard)_currentCard.textContent='⏸'; }
+  else { _audio.pause(); document.getElementById('ap-play-btn').textContent='▶'; if(_currentCard)_currentCard.textContent='▶'; }
+}
+
+function apSeek(e) {
+  if (!_audio||!_audio.duration) return;
+  const r=document.getElementById('ap-progress').getBoundingClientRect();
+  _audio.currentTime=((e.clientX-r.left)/r.width)*_audio.duration;
+}
+
+function apSetVol(v) {
+  if (_audio) _audio.volume=parseFloat(v);
+  document.querySelector('.ap-vol-icon').textContent=v>0.5?'🔊':v>0?'🔉':'🔇';
+}
+
+function apToggleMute() {
+  const sl=document.getElementById('ap-vol');
+  const newV=_audio&&_audio.volume>0?0:0.8;
+  sl.value=newV; apSetVol(newV);
+}
+
+function apClose() {
+  if(_audio){_audio.pause();_audio=null;}
+  cancelAnimationFrame(_raf);
+  if(_currentCard){_currentCard.textContent='▶';_currentCard.classList.remove('playing-now');}
+  _currentKey=null;_currentCard=null;
+  document.getElementById('audio-player').classList.remove('active');
+}
+
+/* ════════════════════════════════════════
+   WORKS DATA
+════════════════════════════════════════ */
+const WORKS = [
+  {title:'岩田剛典 - Can\'t Get Enough', roleKey:'role.comparr', year:'2026', cat:'commercial', heights:[65,80,45,70,90,35,60,85,50,75,40,65,80,45,70,55], videoId:'BEIGmDftOs4', hideBadge:true, tag:'楽曲提供'},
+  {title:'西日本新聞朝刊こどもタイムズ - 書きトレ！に挑戦しよう', roleKey:'role.comparr', year:'2026', cat:'commercial', heights:[60,75,45,80,55,90,40,70,85,35,65,50,80,45,70,60], videoId:'tCLwKgIGCBo', hideBadge:true, tag:'CM'},
+  {title:'Tsuguru Nakayama - Gotta Praise Him', roleKey:'role.arr.prog.mix', year:'2026', cat:'commercial', heights:[55,75,40,85,60,90,35,70,80,45,65,50,85,40,70,60], videoId:'yim0g5Gr2SU', hideBadge:true, tag:'インディーズ'},
+  {title:'Piano House',    roleKey:'role.comp.full', year:'2026', cat:'commercial', heights:[45,80,55,90,35,70,60,85,40,75,50,65,80,30,60,70], audioKey:'pianoHouse', tag:'Demo', hideBadge:true},
+  {title:'BUDDiiS - #KISSYOU', roleKey:'role.guitar', year:'2026', cat:'commercial', heights:[50,80,40,70,85,35,65,90,45,75,55,80,40,60,75,50], videoId:'KSvuOBAWyjs', hideBadge:true, tag:'ギター'},
+  {title:'SUPER★DRAGON - Break off', roleKey:'role.comparr', year:'2026', cat:'commercial', heights:[65,85,45,75,90,40,70,55,80,35,60,85,50,70,40,65], videoId:'szTRoNp3cAg', hideBadge:true, tag:'楽曲提供'},
+  {title:'岩田剛典 - korekara', roleKey:'role.guitar', year:'2026', cat:'commercial', heights:[40,65,80,50,70,90,35,75,55,85,45,60,80,40,65,75], videoId:'LdyrjkocLbc', hideBadge:true, tag:'ギター'},
+  {title:'YOSHIKI SUPERSTAR PROJECT X - Zero Gravity', roleKey:'role.comparr', year:'2026', cat:'commercial', heights:[70,45,85,55,90,40,65,80,35,75,50,60,85,40,70,55], videoId:'3FBgfW77uLY', hideBadge:true, tag:'楽曲提供'},
+  {title:'IS:SUE - come again (Original by m-flo)', roleKey:'role.arr2',   year:'2026', cat:'commercial', heights:[55,80,40,75,90,35,70,50,85,45,65,80,30,60,75,50], videoId:'bJwRWHTNxzE', hideBadge:true, tag:'カバー'},
+  {title:'JO1 - Aqua',       roleKey:'role.comparr', year:'2026', cat:'commercial', heights:[60,80,45,70,90,35,65,50,75,40,85,55,40,70,60,50], videoId:'OW7ArDFfiTE', hideBadge:true, tag:'楽曲提供'},
+];
+
+/* ════════════════════════════════════════
+   LANGUAGE ENGINE
+════════════════════════════════════════ */
+let currentLang = localStorage.getItem('ys-lang') || 'ja';
+
+function t(key) {
+  return DICT[currentLang][key] || DICT['en'][key] || key;
+}
+
+function setLang(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+  localStorage.setItem('ys-lang', lang);
+  document.documentElement.lang = lang;
+
+  // toggle button state
+  document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  // 即時切替（フェードなし）
+  applyTranslations();
+  buildTicker();
+  buildFilter();
+  buildWorks(currentFilter);
+  buildTypeSelect();
+
+  // ヒーローテキストの色を明示保護（applyTranslations内でも同様に処理済み）
+  const _hl1 = document.getElementById('hero-line1');
+  const _hl2 = document.getElementById('hero-line2');
+  if (_hl1) { _hl1.style.color = '#ededed'; _hl1.style.opacity = '1'; _hl1.style.webkitTextStroke = ''; }
+  if (_hl2) { _hl2.style.color = 'transparent'; _hl2.style.webkitTextStroke = '1px #ededed'; _hl2.style.opacity = '1'; }
+
+  // buildWorks で生成された新要素を IntersectionObserver に再登録
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => io.observe(el));
+}
+
+function applyTranslations() {
+  // ヒーローキネティックテキスト — data-i18nではなくIDで管理し、色を明示的に保護
+  const hl1 = document.getElementById('hero-line1');
+  const hl2 = document.getElementById('hero-line2');
+  if (hl1) { hl1.textContent = t('hero.line1'); hl1.style.color = '#ededed'; hl1.style.webkitTextStroke = ''; hl1.style.opacity = '1'; }
+  if (hl2) { hl2.textContent = t('hero.line2'); hl2.style.color = 'transparent'; hl2.style.webkitTextStroke = '1px #ededed'; hl2.style.opacity = '1'; }
+
+  // text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  // html nodes
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    el.innerHTML = t(key);
+  });
+  // placeholders
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    el.placeholder = t(key);
+  });
+}
+
+/* ════════════════════════════════════════
+   TICKER
+════════════════════════════════════════ */
+function buildTicker() {
+  const wrap = document.getElementById('ticker-inner');
+  const items = t('ticker'); // array
+  let html = '';
+  for (let i = 0; i < 2; i++) {
+    items.forEach(item => { html += `<span>${item}</span><b>·</b>`; });
+  }
+  wrap.innerHTML = html;
+}
+
+/* ════════════════════════════════════════
+   WORKS FILTER + GRID
+════════════════════════════════════════ */
+const FILTER_KEYS = [
+  {key:'filter.all',    val:'all'},
+  {key:'filter.cm',     val:'tag:CM'},
+  {key:'filter.mix',    val:'mix'},
+  {key:'filter.indie',  val:'tag:インディーズ'},
+  {key:'filter.demo',   val:'tag:Demo'},
+  {key:'filter.guitar', val:'tag:ギター'},
+  {key:'filter.kyoku',  val:'tag:楽曲提供'},
+];
+let currentFilter = 'all';
+
+function buildFilter() {
+  const wrap = document.getElementById('works-filter');
+  wrap.innerHTML = '';
+  FILTER_KEYS.forEach(f => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (f.val === currentFilter ? ' active' : '');
+    btn.textContent = t(f.key);
+    btn.dataset.filter = f.val;
+    btn.addEventListener('click', () => {
+      currentFilter = f.val;
+      buildFilter();
+      buildWorks(currentFilter);
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+/* ════════════════════════════════════════
+   WORKS LOCK
+════════════════════════════════════════ */
+// ── EmailJS 設定（要変更） ──────────────────────
+// 1. https://www.emailjs.com で無料アカウントを作成
+// 2. Service / Template を作成（テンプレートに {{to_email}} {{password}} を含める）
+// 3. 下記の値を置き換える
+const _EMAILJS_PUBLIC_KEY          = '6OqwfXJHRBosTunAH';
+const _EMAILJS_SERVICE_ID          = 'service_shxhnx8';
+const _EMAILJS_TEMPLATE_ID         = 'template_ilzjbx8';          // Works ロック用テンプレート ID
+const _EMAILJS_CONTACT_TEMPLATE_ID = 'YOUR_CONTACT_TEMPLATE_ID';  // コンタクトフォーム用テンプレート ID
+const _WORKS_PASSWORD              = 'STUDIOARK2026';              // アクセスパスワード（変更推奨）
+// ────────────────────────────────────────────────
+let _worksUnlocked = false;
+
+function updateLockBtn() {
+  const name  = (document.getElementById('lock-name-input')?.value  || '').trim();
+  const email = (document.getElementById('lock-email-input')?.value || '').trim();
+  const btn   = document.getElementById('lock-email-btn');
+  const valid = name.length > 0 && /^[^@]+@[^@]+\.[^@]+$/.test(email);
+  btn.disabled = !valid;
+  btn.style.opacity = valid ? '1' : '0.4';
+  btn.style.cursor  = valid ? 'pointer' : 'not-allowed';
+}
+
+async function submitLockEmail() {
+  const nameInput  = document.getElementById('lock-name-input');
+  const emailInput = document.getElementById('lock-email-input');
+  const btn        = document.getElementById('lock-email-btn');
+  const msg        = document.getElementById('lock-email-msg');
+  const name       = nameInput.value.trim();
+  const email      = emailInput.value.trim();
+  if (!name) {
+    msg.textContent = t('lock.name_req');
+    msg.className   = 'lock-msg error';
+    return;
+  }
+  if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+    msg.textContent = t('lock.email_req');
+    msg.className   = 'lock-msg error';
+    return;
+  }
+  btn.disabled    = true;
+  btn.textContent = t('lock.sending');
+  msg.textContent = '';
+  try {
+    if (_EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+      await emailjs.send(_EMAILJS_SERVICE_ID, _EMAILJS_TEMPLATE_ID, {
+        to_email: email,
+        from_name: name,
+        password: _WORKS_PASSWORD,
+      });
+    }
+    msg.textContent = t('lock.sent_ok');
+    msg.className   = 'lock-msg success';
+    setTimeout(() => {
+      document.getElementById('lock-step-email').style.display    = 'none';
+      document.getElementById('lock-step-password').style.display = 'flex';
+    }, 800);
+  } catch(e) {
+    msg.textContent = t('lock.send_err');
+    msg.className   = 'lock-msg error';
+    btn.disabled    = false;
+    btn.textContent = t('lock.send');
+  }
+}
+
+function checkLockPassword() {
+  const pw  = document.getElementById('lock-pw-input').value;
+  const msg = document.getElementById('lock-pw-msg');
+  if (pw === _WORKS_PASSWORD) {
+    _worksUnlocked = true;
+    buildWorks(currentFilter);
+    window.scrollTo({ top: document.getElementById('works').offsetTop - 80, behavior: 'smooth' });
+  } else {
+    msg.textContent = t('lock.pw_err');
+    msg.className   = 'lock-msg error';
+    document.getElementById('lock-pw-input').value = '';
+  }
+}
+
+
+function selectCard(el) {
+  document.querySelectorAll('.work-card.selected').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function buildWorks(filter = 'all') {
+  const grid = document.getElementById('works-grid');
+  grid.innerHTML = '';
+  const panel = document.getElementById('works-lock-panel');
+  if (panel) panel.classList.toggle('hidden', _worksUnlocked);
+  const source = _worksUnlocked ? WORKS : WORKS.filter(w => w.tag === 'Demo');
+  source.filter(w => {
+    if (filter === 'all') return true;
+    if (filter.startsWith('tag:')) return w.tag === filter.slice(4);
+    return w.cat === filter;
+  }).forEach(w => {
+    // Spotify card
+    if (w.spotifyId) {
+      const catLabel = {film: t('filter.film'), game: t('filter.game'), commercial: t('filter.cm')}[w.cat] || w.cat;
+      grid.innerHTML += `
+      <div class="work-card-spotify" data-cat="${w.cat}">
+        <div class="work-card-top">
+          <span style="display:flex;gap:6px;align-items:center;">
+            ${!w.hideBadge ? `<span class="work-badge">${catLabel}</span>` : ''}
+            ${w.tag ? `<span class="work-badge" style="background:rgba(255,255,255,0.06);color:var(--muted);">${w.tag}</span>` : ''}
+          </span>
+          
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/${w.spotifyId}?utm_source=generator&theme=0"
+          width="100%" height="80" frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy" style="border-radius:8px;"></iframe>
+        <div>
+          <div class="work-title">${w.title.replace(' (Spotify)','')}</div>
+          <div class="work-role">${t(w.roleKey)}</div>
+        </div>
+      </div>`;
+      return;
+    }
+    const bars = w.heights.map(h => `<div class="wf-bar" style="height:${h}%"></div>`).join('');
+    const catLabel = {film: t('filter.film'), game: t('filter.game'), commercial: t('filter.cm')}[w.cat] || w.cat;
+    const thumbHtml = w.videoId
+      ? `<div class="work-thumb-yt" onclick="openVideo('${w.videoId}')">
+           <img src="https://i.ytimg.com/vi/${w.videoId}/maxresdefault.jpg"
+                onerror="this.style.display='none'"
+                alt="${w.title}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+           <div class="work-thumb-yt-overlay"><div class="yt-play-icon">▶</div></div>
+         </div>`
+      : `<div class="work-thumb"><div class="work-thumb-waveform">${bars}</div></div>`;
+    const playBtn = w.videoId
+      ? `<div class="work-play has-audio" onclick="openVideo('${w.videoId}')">▶</div>`
+      : w.audioKey
+        ? `<div class="work-play has-audio" onclick="playTrack('${w.audioKey}',this)">▶</div>`
+        : `<div class="work-play" style="opacity:0.25;cursor:default">▶</div>`;
+    grid.innerHTML += `
+    <div class="work-card" data-cat="${w.cat}" onclick="selectCard(this)">
+      <div class="work-card-top">
+        <span style="display:flex;gap:6px;align-items:center;">
+          ${!w.hideBadge ? `<span class="work-badge">${catLabel}</span>` : ''}
+          ${w.tag ? `<span class="work-badge" style="background:rgba(255,255,255,0.06);color:var(--muted);">${w.tag}</span>` : ''}
+        </span>
+        
+      </div>
+      ${thumbHtml}
+      <div>
+        <div class="work-title">${w.title}</div>
+        <div class="work-role">${t(w.roleKey)}</div>
+      </div>
+      ${playBtn}
+    </div>`;
+  });
+}
+
+/* ════════════════════════════════════════
+   HERO CANVAS
+════════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('ys-canvas');
+  const ctx    = canvas.getContext('2d');
+  const hero   = document.getElementById('hero');
+  const loader = document.getElementById('ys-loader');
+  const loaderNum  = document.getElementById('ys-loader-num');
+  const loaderFill = document.getElementById('ys-loader-fill');
+  const piano  = document.getElementById('ys-piano');
+
+  for (let i = 0; i < 24; i++) {
+    const b = document.createElement('button');
+    b.className = 'ys-key';
+    if ([1,3,6,8,10,13,15,18,20,22].indexOf(i % 24) > -1) b.style.height = '65%';
+    piano.appendChild(b);
+  }
+  const keys = piano.querySelectorAll('.ys-key');
+
+  let DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let W, H, cx, cy;
+  function resize() {
+    const r = hero.getBoundingClientRect();
+    canvas.width  = r.width * DPR; canvas.height = r.height * DPR;
+    canvas.style.width  = r.width  + 'px';
+    canvas.style.height = r.height + 'px';
+    W = canvas.width; H = canvas.height; cx = W * 0.74; cy = H * 0.50;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  let mouseX = cx, mouseY = cy, mx = cx, my = cy;
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    mouseX = (e.clientX - r.left) * DPR;
+    mouseY = (e.clientY - r.top)  * DPR;
+  });
+  hero.addEventListener('mouseleave', () => { mouseX = cx; mouseY = cy; });
+
+  const loadStart = performance.now();
+  const loadDuration = 2400;
+  function loadStep() {
+    const pct = Math.min(100, Math.floor(((performance.now() - loadStart) / loadDuration) * 100));
+    loaderNum.textContent = pct;
+    loaderFill.style.right = (100 - pct) + '%';
+    if (pct < 100) requestAnimationFrame(loadStep);
+    else setTimeout(() => loader.classList.add('done'), 250);
+  }
+  loadStep();
+
+  let lastLit = -1;
+  setInterval(() => {
+    if (lastLit > -1) keys[lastLit].classList.remove('lit');
+    lastLit = Math.floor(Math.random() * 24);
+    keys[lastLit].classList.add('lit');
+  }, 420);
+
+  let t = 0;
+  function animate() {
+    t += 0.016;
+    mx += (mouseX - mx) * 0.07;
+    my += (mouseY - my) * 0.07;
+    ctx.clearRect(0, 0, W, H);
+    const dx = mx - cx, dy = my - cy;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    const prox = Math.max(0, 1 - dist / (Math.min(W, H) * 0.45));
+    const baseR = Math.min(W, H) * 0.16;
+    const beat  = Math.sin(t * 4.4) * 0.06 + 1;
+
+    for (let i = 0; i < 6; i++) {
+      const y   = H * 0.18 + i * (H * 0.10);
+      const amp = (2 + i * 0.6) * DPR;
+      ctx.beginPath();
+      for (let x = 0; x < W; x += 4 * DPR) {
+        const wave = Math.sin(x * 0.012 + t * (2 + i * 0.3)) * amp * (0.4 + prox * 0.6);
+        x === 0 ? ctx.moveTo(x, y + wave) : ctx.lineTo(x, y + wave);
+      }
+      ctx.strokeStyle = 'rgba(255,255,255,' + (0.04 + i * 0.012) + ')';
+      ctx.lineWidth = 1 * DPR;
+      ctx.stroke();
+    }
+
+    for (let i = 0; i < 14; i++) {
+      const phase = (t * 1.1 + i * 0.42) % 5;
+      const r     = baseR * (0.95 + phase * 1.05);
+      const alpha = Math.max(0, 1 - phase / 5) * (0.35 + prox * 0.25);
+      ctx.beginPath();
+      ctx.arc(cx + dx * 0.04, cy + dy * 0.04, r, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(245,124,44,' + alpha + ')';
+      ctx.lineWidth = 1 * DPR;
+      ctx.stroke();
+    }
+
+    const sx = cx + dx * 0.06, sy = cy + dy * 0.06;
+    const coneR = baseR * beat * (1 + prox * 0.18);
+    ctx.beginPath(); ctx.arc(sx, sy, coneR * 1.18, 0, Math.PI * 2);
+    ctx.fillStyle = '#161616'; ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 1 * DPR; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sx, sy, coneR, 0, Math.PI * 2);
+    ctx.fillStyle = '#0e0e0e'; ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sx, sy, coneR * 0.62, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sx, sy, coneR * 0.36, 0, Math.PI * 2);
+    ctx.fillStyle = '#f57c2c'; ctx.fill();
+    ctx.beginPath(); ctx.arc(sx - coneR * 0.08, sy - coneR * 0.08, coneR * 0.12, 0, Math.PI * 2);
+    ctx.fillStyle = '#0a0a0a'; ctx.fill();
+
+    const eqW = W * 0.20, eqH = H * 0.06;
+    const eqX = W - eqW - W * 0.04, eqY = H * 0.12;
+    const barW = eqW / 20;
+    for (let i = 0; i < 20; i++) {
+      const v = (Math.sin(t * 3.3 + i * 0.32) * 0.5 + 0.5) * (Math.sin(t * 1.6 + i * 0.11) * 0.3 + 0.7);
+      const h = v * eqH;
+      ctx.fillStyle = i < 20 * (0.45 + prox * 0.35) ? '#f57c2c' : 'rgba(255,255,255,0.35)';
+      ctx.fillRect(eqX + i * barW, eqY + eqH - h, barW * 0.6, h);
+    }
+
+    ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+    ctx.lineWidth = 1 * DPR;
+    const gridS = 80 * DPR;
+    for (let x = 0; x < W; x += gridS) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+    for (let y = 0; y < H; y += gridS) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+/* ════════════════════════════════════════
+   TYPE SELECT
+════════════════════════════════════════ */
+const TYPE_KEYS = ['type.s1','type.s2','type.s3','type.s4','type.s5','type.s6','type.other'];
+
+function buildTypeSelect() {
+  const sel = document.getElementById('type-select');
+  const current = sel.value;
+  sel.innerHTML = `<option value="" disabled selected>${t('type.placeholder')}</option>`;
+  TYPE_KEYS.forEach(key => {
+    const opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = t(key);
+    sel.appendChild(opt);
+  });
+  if (current) sel.value = current;
+}
+
+/* ════════════════════════════════════════
+   FORM SUBMIT — Formspree fetch()
+════════════════════════════════════════ */
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form    = e.target;
+  const btn     = form.querySelector('.form-submit');
+  const success = document.querySelector('[data-fs-success]');
+  const errBox  = document.querySelector('[data-fs-error]');
+  const orig    = btn.textContent;
+
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+  if (errBox) { errBox.style.display = 'none'; errBox.textContent = ''; }
+
+  try {
+    const res = await fetch('https://formspree.io/f/xkoygyra', {
+      method:  'POST',
+      headers: { 'Accept': 'application/json' },
+      body:    new FormData(form)
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      form.style.display  = 'none';
+      if (success) success.style.display = 'block';
+    } else {
+      const msg = (data.errors || []).map(x => x.message).join(' ') || '送信に失敗しました。再度お試しください。';
+      if (errBox) { errBox.textContent = msg; errBox.style.display = 'block'; }
+      btn.disabled    = false;
+      btn.textContent = orig;
+    }
+  } catch (err) {
+    const msg = location.protocol === 'file:'
+      ? 'ローカルファイルからは送信できません。ブラウザで http://localhost:8080 を開いてください。'
+      : 'ネットワークエラーが発生しました。再度お試しください。';
+    if (errBox) { errBox.textContent = msg; errBox.style.display = 'block'; }
+    btn.disabled    = false;
+    btn.textContent = orig;
+  }
+}
+
+/* ════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════ */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ════════════════════════════════════════
+   INIT
+════════════════════════════════════════ */
+(function init() {
+  document.documentElement.lang = currentLang;
+  document.getElementById('btn-ja').classList.toggle('active', currentLang === 'ja');
+  document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+  applyTranslations();
+  buildTicker();
+  buildFilter();
+  buildWorks('all');
+  buildTypeSelect();
+})();
+</script>
+
+
+<!-- ─── VIDEO MODAL ─── -->
+<div id="video-modal" onclick="if(event.target===this)closeVideo()">
+  <div class="vm-inner">
+    <button class="vm-close" onclick="closeVideo()">✕</button>
+    <iframe id="vm-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+  </div>
+</div>
+
+<!-- ─── AUDIO PLAYER ─── -->
+<div id="audio-player">
+  <button class="ap-btn" id="ap-play-btn" onclick="apToggle()">▶</button>
+  <div class="ap-title" id="ap-title">—</div>
+  <div class="ap-progress" id="ap-progress" onclick="apSeek(event)">
+    <div class="ap-progress-fill" id="ap-fill"></div>
+  </div>
+  <div class="ap-time" id="ap-time">0:00 / 0:00</div>
+  <div class="ap-vol-wrap">
+    <span class="ap-vol-icon" onclick="apToggleMute()">🔊</span>
+    <input type="range" class="ap-vol" id="ap-vol" min="0" max="1" step="0.01" value="0.8" oninput="apSetVol(this.value)">
+  </div>
+  <span class="ap-close" onclick="apClose()">✕</span>
+</div>
+
+
+
+
+<script>
+/* ── Glow Orb: velocity-reactive wave shape, seamless via fixed+transparent sections ── */
+(function(){
+  function lerp(a,b,t){return a+(b-a)*t;}
+
+  const SECTIONS=['services','works','contact']
+    .map(id=>document.getElementById(id)).filter(Boolean);
+
+  function inSections(x,y){
+    return SECTIONS.some(s=>{
+      const r=s.getBoundingClientRect();
+      return x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom;
+    });
+  }
+
+  /* グロー要素を body に追加 */
+  const orb=document.createElement('div');
+  orb.className='glow-orb';
+  document.body.appendChild(orb);
+
+  const R=320; /* 半径 */
+  let cx=window.innerWidth/2, cy=-700, tx=cx, ty=-700;
+  let pvx=0,pvy=0,tvx=0,tvy=0,lastX=cx,lastY=0;
+  let active=false, raf=null;
+
+  function animate(){
+    cx=lerp(cx,tx,0.08); cy=lerp(cy,ty,0.08);
+    pvx=lerp(pvx,tvx,0.12); pvy=lerp(pvy,tvy,0.12);
+
+    const speed=Math.sqrt(pvx*pvx+pvy*pvy);
+    const angle=Math.atan2(pvy,pvx)*180/Math.PI;
+
+    /* 速度で進行方向に引き伸ばす */
+    const stretch=1+Math.min(speed*0.016,0.55);
+    const squish =1/Math.sqrt(stretch);
+
+    /* 速度に応じてborder-radiusを波打たせる */
+    const w=Math.min(speed*0.5,22);
+    const br=`${50+w}% ${50-w}% ${50+w*0.7}% ${50-w*0.7}% / ${50-w*0.6}% ${50+w*0.8}% ${50-w*0.5}% ${50+w*0.7}%`;
+
+    orb.style.transform=`translate(${Math.round(cx-R)}px,${Math.round(cy-R)}px) rotate(${angle}deg) scaleX(${stretch.toFixed(3)}) scaleY(${squish.toFixed(3)})`;
+    orb.style.borderRadius=br;
+
+    tvx*=0.82; tvy*=0.82;
+    raf=requestAnimationFrame(animate);
+  }
+
+  document.addEventListener('mousemove',e=>{
+    const nx=e.clientX,ny=e.clientY;
+    tvx=nx-lastX; tvy=ny-lastY;
+    lastX=nx; lastY=ny;
+
+    if(inSections(nx,ny)){
+      tx=nx; ty=ny;
+      if(!active){
+        active=true;
+        orb.style.opacity='1';
+        if(!raf) animate();
+      }
+    } else if(active){
+      active=false;
+      orb.style.opacity='0';
+      ty=-700; tvx=0; tvy=0;
+    }
+  });
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init({ publicKey: '6OqwfXJHRBosTunAH' });
+</script>
+<script>
+/* ════════════════════════════════════════
+   2D MIX CONSOLE
+════════════════════════════════════════ */
+(function initMixConsole() {
+  const wrap = document.getElementById('mix-console-wrap');
+  if (!wrap) return;
+
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'display:block;cursor:crosshair;';
+  wrap.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let W, H;
+  const NC = 8;
+  const chs = [];
+  let master = {};
+  let mouseX = -999, mouseY = -999;
+  let dragFader = null, dragStartY = 0, dragStartVal = 0;
+
+  const PAD = 18, MW = 44;
+  function chW()              { return (W - PAD*2 - MW - 10) / NC; }
+  function fTop(h)            { return h * 0.28; }
+  function fBot(h)            { return h - 30; }
+  function capY(v, t, b)      { return b - v*(b-t); }
+
+  function initState() {
+    chs.length = 0;
+    for (let i = 0; i < NC; i++) {
+      const cx = PAD + i*chW() + chW()/2;
+      chs.push({
+        cx, x0: PAD + i*chW(),
+        fVal:    0.3 + Math.random()*0.5,
+        fTarget: 0.3 + Math.random()*0.5,
+        kVal:    0.35 + Math.random()*0.45,
+        vuLvl: Math.random()*0.6+0.2,
+        vuTgt: Math.random()*0.7+0.1,
+        muted: false,
+      });
+    }
+    const mx0 = W - PAD - MW;
+    master = {
+      cx: mx0 + MW/2, x0: mx0, w: MW,
+      fVal: 0.78, fTarget: 0.78,
+      kVal: 0.65,
+      vuLvl: 0.74, vuTgt: 0.74,
+    };
+  }
+
+  function resize() {
+    const section = document.getElementById('contact');
+    W = section ? section.offsetWidth : (wrap.clientWidth || 800);
+    H = section ? section.offsetHeight : Math.max(400, Math.round(W * 0.6));
+    canvas.width  = W*DPR; canvas.height = H*DPR;
+    canvas.style.width  = W+'px'; canvas.style.height = H+'px';
+    ctx.scale(DPR, DPR);
+    initState();
+  }
+
+  /* knob: minimal arc + indicator tick */
+  function drawKnob(cx, cy, r, val, hot) {
+    const a0 = Math.PI*0.78, a1 = Math.PI*2.22, ac = a0 + val*(a1-a0);
+    ctx.beginPath(); ctx.arc(cx, cy, r, a0, a1);
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.lineWidth=1; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx, cy, r, a0, ac);
+    ctx.strokeStyle = hot ? '#f57c2c' : 'rgba(245,124,44,0.45)'; ctx.lineWidth=1.5; ctx.stroke();
+    /* tick line */
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(ac)*r*0.4, cy + Math.sin(ac)*r*0.4);
+    ctx.lineTo(cx + Math.cos(ac)*r*1.5, cy + Math.sin(ac)*r*1.5);
+    ctx.strokeStyle = hot ? '#f57c2c' : 'rgba(255,255,255,0.35)'; ctx.lineWidth=1; ctx.stroke();
+  }
+
+  /* fader: vertical track line + horizontal crossbar */
+  function drawFader(cx, top, bot, val, hot) {
+    const cy_ = capY(val, top, bot);
+    const hw = hot ? 13 : 9; /* half-width of crossbar */
+
+    /* track */
+    ctx.beginPath(); ctx.moveTo(cx, top); ctx.lineTo(cx, bot);
+    ctx.strokeStyle = 'rgba(255,255,255,0.10)'; ctx.lineWidth=1; ctx.stroke();
+
+    /* 0 dB notch */
+    const zY = bot - 0.75*(bot-top);
+    ctx.beginPath(); ctx.moveTo(cx-4, zY); ctx.lineTo(cx+4, zY);
+    ctx.strokeStyle = 'rgba(245,124,44,0.30)'; ctx.lineWidth=1; ctx.stroke();
+
+    /* crossbar */
+    ctx.beginPath(); ctx.moveTo(cx-hw, cy_); ctx.lineTo(cx+hw, cy_);
+    ctx.strokeStyle = hot ? '#f57c2c' : 'rgba(255,255,255,0.60)';
+    ctx.lineWidth = hot ? 1.5 : 1; ctx.stroke();
+
+    /* end serifs */
+    ctx.beginPath();
+    ctx.moveTo(cx-hw, cy_-3); ctx.lineTo(cx-hw, cy_+3);
+    ctx.moveTo(cx+hw, cy_-3); ctx.lineTo(cx+hw, cy_+3);
+    ctx.strokeStyle = hot ? 'rgba(245,124,44,0.55)' : 'rgba(255,255,255,0.20)';
+    ctx.lineWidth=1; ctx.stroke();
+  }
+
+  /* VU: column of thin horizontal dashes */
+  function drawVU(x, top, bot, level, muted) {
+    const n=7, th=bot-top, seg=(th-(n-1)*2)/n;
+    for (let i=0; i<n; i++) {
+      const by = bot - i*(seg+2) - seg/2;
+      const active = !muted && level>=(i+1)/n;
+      ctx.fillStyle = i>=n-1 ? (active?'rgba(229,57,53,0.9)':'rgba(229,57,53,0.10)')
+                    : i>=n-2 ? (active?'rgba(244,200,66,0.9)':'rgba(244,200,66,0.10)')
+                    :          (active?'rgba(42,157,92,0.80)':'rgba(42,157,92,0.10)');
+      ctx.fillRect(x, by, 3, 1.5);
+    }
+  }
+
+  /* ── Interaction ── */
+  canvas.addEventListener('mousemove', e => {
+    const r = canvas.getBoundingClientRect();
+    mouseX = e.clientX-r.left; mouseY = e.clientY-r.top;
+    if (dragFader) {
+      const t=fTop(H), b=fBot(H);
+      dragFader.fTarget = Math.max(0, Math.min(1, dragStartVal + (dragStartY-e.clientY)/(b-t)));
+    }
+  });
+
+  canvas.addEventListener('mousedown', e => {
+    const r = canvas.getBoundingClientRect();
+    const mx=e.clientX-r.left, my=e.clientY-r.top;
+    const t=fTop(H), b=fBot(H);
+    for (const ch of [...chs, master]) {
+      if (Math.abs(mx-ch.cx)<16 && Math.abs(my-capY(ch.fVal,t,b))<10) {
+        dragFader=ch; dragStartY=e.clientY; dragStartVal=ch.fVal;
+        canvas.style.cursor='grabbing'; return;
+      }
+    }
+    /* mute toggle */
+    const muteY = H-14;
+    for (const ch of chs) {
+      if (Math.abs(mx-ch.cx)<14 && Math.abs(my-muteY)<8) {
+        ch.muted=!ch.muted;
+        ch.fTarget = ch.muted ? 0 : (ch.fVal<0.05 ? 0.6 : ch.fVal);
+        return;
+      }
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    dragFader=null; canvas.style.cursor='crosshair';
+  });
+  canvas.addEventListener('mouseleave', () => { mouseX=-999; mouseY=-999; });
+
+  /* ── Animate ── */
+  let t=0;
+  function animate() {
+    requestAnimationFrame(animate); t+=0.016;
+    ctx.save(); ctx.clearRect(0,0,W,H);
+    ctx.globalAlpha = 0.32; /* 背景として控えめに */
+
+    /* grid — same as hero */
+    ctx.strokeStyle='rgba(255,255,255,0.025)'; ctx.lineWidth=1;
+    for(let x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(let y=0;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+    const top=fTop(H), bot=fBot(H), KR=6;
+
+    /* channels */
+    chs.forEach((ch,i) => {
+      if(Math.random()<.04) ch.vuTgt=Math.max(.05,Math.min(.95,ch.vuTgt+(Math.random()-.44)*.5));
+      ch.vuLvl += (ch.vuTgt-ch.vuLvl)*.15;
+      ch.fVal  += (ch.fTarget-ch.fVal)*.18;
+
+      /* channel divider — hairline */
+      if (i>0) {
+        ctx.beginPath(); ctx.moveTo(ch.x0,top*.5); ctx.lineTo(ch.x0,bot);
+        ctx.strokeStyle='rgba(255,255,255,0.04)'; ctx.lineWidth=1; ctx.stroke();
+      }
+
+      /* knob */
+      const ky = top*0.5;
+      const kHot = Math.hypot(mouseX-ch.cx, mouseY-ky)<KR*2.5 && !dragFader;
+      drawKnob(ch.cx, ky, KR, ch.kVal, kHot);
+
+      /* VU — right side of track */
+      drawVU(ch.cx+6, top, bot, ch.vuLvl, ch.muted);
+
+      /* fader */
+      const fHot = dragFader===ch || (Math.abs(mouseX-ch.cx)<16&&Math.abs(mouseY-capY(ch.fVal,top,bot))<10);
+      drawFader(ch.cx, top, bot, ch.fVal, fHot);
+
+      /* mute dot */
+      const muteY=H-14;
+      const mHot=Math.abs(mouseX-ch.cx)<14&&Math.abs(mouseY-muteY)<8;
+      ctx.beginPath(); ctx.arc(ch.cx, muteY, 3.5, 0, Math.PI*2);
+      ctx.fillStyle = ch.muted ? 'rgba(229,57,53,0.85)' : (mHot?'rgba(245,124,44,0.5)':'rgba(255,255,255,0.15)');
+      ctx.fill();
+
+      /* channel number */
+      ctx.fillStyle='rgba(255,255,255,0.18)';
+      ctx.font="400 7px 'Helvetica Neue',Helvetica,Arial,sans-serif";
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(i+1, ch.cx, H-5);
+    });
+
+    /* master — orange accent */
+    ctx.beginPath(); ctx.moveTo(master.x0-4, top*.3); ctx.lineTo(master.x0-4, bot);
+    ctx.strokeStyle='rgba(245,124,44,0.18)'; ctx.lineWidth=1; ctx.stroke();
+
+    ctx.fillStyle='rgba(245,124,44,0.55)';
+    ctx.font="500 7px 'Helvetica Neue',Helvetica,Arial,sans-serif";
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('M', master.cx, top*0.18);
+
+    const mkHot = Math.hypot(mouseX-master.cx, mouseY-top*.5)<KR*2.5&&!dragFader;
+    drawKnob(master.cx, top*.5, KR*1.2, master.kVal, mkHot);
+
+    if(Math.random()<.05) master.vuTgt=Math.max(.1,Math.min(1,master.vuTgt+(Math.random()-.4)*.4));
+    master.vuLvl+=(master.vuTgt-master.vuLvl)*.15;
+    drawVU(master.cx+8, top, bot, master.vuLvl, false);
+
+    master.fVal += (master.fTarget-master.fVal)*.18;
+    const mfHot = dragFader===master||(Math.abs(mouseX-master.cx)<16&&Math.abs(mouseY-capY(master.fVal,top,bot))<10);
+    drawFader(master.cx, top, bot, master.fVal, mfHot);
+
+    /* LED breathe */
+    const p=.5+Math.sin(t*4.2)*.35;
+    ctx.beginPath(); ctx.arc(master.x0+master.w-8, top*0.18, 3, 0, Math.PI*2);
+    ctx.fillStyle=`rgba(42,157,92,${p})`; ctx.fill();
+
+    ctx.restore();
+  }
+
+  resize();
+  window.addEventListener('resize',()=>{ ctx.resetTransform(); resize(); });
+  animate();
+})();
+</script>
+</body>
+</html>
