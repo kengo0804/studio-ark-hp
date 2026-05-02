@@ -895,7 +895,7 @@ footer{padding:40px;border-top:1px solid var(--border);display:flex;justify-cont
 </section>
 
 <!-- ─── FAQ ─── -->
-<section id="faq" style="background:#0f0f0f;padding:80px 7vw;">
+<section id="faq" style="background:rgba(255,255,255,0.03);padding:80px 7vw;backdrop-filter:blur(8px);">
   <div style="max-width:720px;margin:0 auto;">
     <h2 style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:40px;" data-i18n="faq.label">よくある質問</h2>
     <div id="faq-list"></div>
@@ -1803,7 +1803,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 (function(){
   function lerp(a,b,t){return a+(b-a)*t;}
 
-  const SECTIONS=['services','works','contact']
+  const SECTIONS=['services','works','faq','contact']
     .map(id=>document.getElementById(id)).filter(Boolean);
 
   function inSections(x,y){
