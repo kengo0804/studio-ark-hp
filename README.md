@@ -7,7 +7,7 @@
 
 ## スクリーンショット
 
-[![Ark Collective](https://image.thum.io/get/width/1280/https://arkcltv.com)](https://arkcltv.com)
+![Ark Collective](./screenshot.png)
 
 ## 特徴
 
