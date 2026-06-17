@@ -1,9 +1,14 @@
 # Ark Collective — オフィシャルウェブサイト
 ## Overview / 概要
+福岡市中央区薬院を拠点とする
 ## Live Demo / 公開URL
 ## Screenshots / スクリーンショット
+![Ark Collective](./screenshot.png)
 ## Features / 特徴
 ## Tech Stack / 技術スタック
+- HTML
+- CSS
+- JavaScript
 ## Getting Started / ローカルで確認する
 ## Deployment / デプロイ
 ## License / ライセンス
