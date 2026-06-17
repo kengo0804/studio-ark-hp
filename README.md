@@ -1,4 +1,12 @@
 # Ark Collective — オフィシャルウェブサイト
+## Overview / 概要
+## Live Demo / 公開URL
+## Screenshots / スクリーンショット
+## Features / 特徴
+## Tech Stack / 技術スタック
+## Getting Started / ローカルで確認する
+## Deployment / デプロイ
+## License / ライセンス
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Farkcltv.com%2F&label=arkcltv.com)](https://arkcltv.com/)
 [![GitHub Pages](https://img.shields.io/github/deployments/kengo0804/studio-ark-hp/github-pages?label=GitHub%20Pages)](https://kengo0804.github.io/studio-ark-hp/)
