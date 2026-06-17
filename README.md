@@ -5,6 +5,10 @@
 
 🌐 **公開URL**: https://arkcltv.com/
 
+## スクリーンショット
+
+[![Ark Collective](https://image.thum.io/get/width/1280/https://arkcltv.com)](https://arkcltv.com)
+
 ## 特徴
 
 - フレームワーク不要の純粋な HTML / CSS / JavaScript で構築
