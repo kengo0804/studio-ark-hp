@@ -1,9 +1,16 @@
 # Ark Collective — オフィシャルウェブサイト
 
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Farkcltv.com%2F&label=arkcltv.com)](https://arkcltv.com/)
+[![GitHub Pages](https://img.shields.io/github/deployments/kengo0804/studio-ark-hp/github-pages?label=GitHub%20Pages)](https://kengo0804.github.io/studio-ark-hp/)
+[![License: MIT](https://img.shields.io/github/license/kengo0804/studio-ark-hp)](./LICENSE)
+
 福岡市中央区薬院を拠点とする音楽制作・レコーディングスタジオ **Ark Collective** のウェブサイトです。  
 楽曲制作・編曲・レコーディング・ミックス&マスタリングを全国対応で提供しています。
 
-🌐 **公開URL**: https://arkcltv.com/
+## 公開URL
+
+- Production: https://arkcltv.com/
+- GitHub Pages: https://kengo0804.github.io/studio-ark-hp/
 
 ## スクリーンショット
 
@@ -54,11 +61,14 @@ npx serve .
 
 ## デプロイ
 
-すべて静的ファイルで完結しているため、どの静的ホスティングサービスにもそのままデプロイできます。
+このリポジトリは静的サイトとしてデプロイ済みです。
 
-- **Netlify / Vercel**: リポジトリを連携してそのままデプロイ
-- **GitHub Pages**: Settings → Pages → ブランチを `main` に設定
-- **FTP**: ファイルをサーバーにそのままアップロード
+| 環境 | URL | 用途 |
+|------|-----|------|
+| Production | https://arkcltv.com/ | 独自ドメインの本番公開URL |
+| GitHub Pages | https://kengo0804.github.io/studio-ark-hp/ | GitHub上の公開デモ・Deployment履歴 |
+
+GitHub Pages の `github-pages` environment にデプロイ履歴が残るため、GitHub上でも公開実績を確認できます。すべて静的ファイルで完結しているため、Netlify / Vercel / GitHub Pages などの静的ホスティングにそのまま配信できます。
 
 ## 対応サービス・ジャンル
 
